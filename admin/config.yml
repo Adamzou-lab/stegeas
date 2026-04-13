@@ -17,60 +17,84 @@ collections:
         file: index.njk
         fields:
           - { label: "Titre SEO", name: title, widget: string }
-          - { label: "Description SEO", name: description, widget: string }
-          - label: "Héro"
-            name: hero_eyebrow
-            widget: string
-            hint: "Petit texte au-dessus du titre (ex: Cabinet Indépendant — TOULOUSE)"
+          - { label: "Description SEO", name: description, widget: text }
+          - { label: "Accroche héro", name: hero_eyebrow, widget: string }
           - { label: "Titre héro", name: hero_title, widget: string }
-          - { label: "Texte héro", name: hero_text, widget: text }
-          - { label: "Bouton héro", name: hero_cta, widget: string }
-          - label: "Section À propos"
-            name: about_tag
-            widget: string
+          - { label: "Badge Business Club", name: bc_badge, widget: string }
+          - { label: "Tag section À propos", name: about_tag, widget: string }
           - { label: "Titre À propos", name: about_title, widget: string }
-          - { label: "Paragraphe 1", name: about_text1, widget: text }
-          - { label: "Paragraphe 2", name: about_text2, widget: text }
-          - label: "Section Professionnels"
-            name: pro_section_label
-            widget: string
-          - { label: "Titre Professionnels", name: pro_title, widget: string }
-          - label: "Section Particuliers"
-            name: part_section_label
-            widget: string
-          - { label: "Titre Particuliers", name: part_title, widget: string }
-          - { label: "Texte bande de contact", name: contact_strip, widget: string }
+          - { label: "Paragraphe À propos 1", name: about_text1, widget: text }
+          - { label: "Paragraphe À propos 2", name: about_text2, widget: text }
+          - { label: "Label section Professionnels", name: pro_section_label, widget: string }
+          - { label: "Titre section Professionnels", name: pro_title, widget: string }
+          - { label: "Carte pro 1 — Titre", name: pro_c1_title, widget: string }
+          - { label: "Carte pro 1 — Texte", name: pro_c1_text, widget: text }
+          - { label: "Carte pro 2 — Titre", name: pro_c2_title, widget: string }
+          - { label: "Carte pro 2 — Texte", name: pro_c2_text, widget: text }
+          - { label: "Carte pro 3 — Titre", name: pro_c3_title, widget: string }
+          - { label: "Carte pro 3 — Texte", name: pro_c3_text, widget: text }
+          - { label: "Carte pro 4 — Titre", name: pro_c4_title, widget: string }
+          - { label: "Carte pro 4 — Texte", name: pro_c4_text, widget: text }
+          - { label: "Carte pro 5 — Titre", name: pro_c5_title, widget: string }
+          - { label: "Carte pro 5 — Texte", name: pro_c5_text, widget: text }
+          - { label: "Carte pro 6 — Titre", name: pro_c6_title, widget: string }
+          - { label: "Carte pro 6 — Texte", name: pro_c6_text, widget: text }
+          - { label: "Label section Particuliers", name: part_section_label, widget: string }
+          - { label: "Titre section Particuliers", name: part_title, widget: string }
+          - { label: "Carte part 1 — Titre", name: part_c1_title, widget: string }
+          - { label: "Carte part 1 — Texte", name: part_c1_text, widget: text }
+          - { label: "Carte part 2 — Titre", name: part_c2_title, widget: string }
+          - { label: "Carte part 2 — Texte", name: part_c2_text, widget: text }
+          - { label: "Carte part 3 — Titre", name: part_c3_title, widget: string }
+          - { label: "Carte part 3 — Texte", name: part_c3_text, widget: text }
+          - { label: "Carte part 4 — Titre", name: part_c4_title, widget: string }
+          - { label: "Carte part 4 — Texte", name: part_c4_text, widget: text }
+          - { label: "Carte part 5 — Titre", name: part_c5_title, widget: string }
+          - { label: "Carte part 5 — Texte", name: part_c5_text, widget: text }
+          - { label: "Carte part 6 — Titre", name: part_c6_title, widget: string }
+          - { label: "Carte part 6 — Texte", name: part_c6_text, widget: text }
+          - { label: "Label partenaires", name: partners_label, widget: string }
+          - { label: "Texte bande contact", name: contact_strip, widget: string }
 
       - name: cabinet
         label: Le Cabinet
         file: cabinet.njk
         fields:
           - { label: "Titre SEO", name: title, widget: string }
-          - { label: "Description SEO", name: description, widget: string }
-          - label: "Héro"
-            name: hero_label
-            widget: string
+          - { label: "Description SEO", name: description, widget: text }
+          - { label: "Label héro", name: hero_label, widget: string }
           - { label: "Titre héro", name: hero_title, widget: string }
           - { label: "Texte héro", name: hero_text, widget: text }
-          - label: "Section Histoire"
-            name: histoire_label
-            widget: string
-          - { label: "Titre histoire", name: histoire_title, widget: string }
-          - { label: "Paragraphe 1", name: histoire_p1, widget: text }
-          - { label: "Paragraphe 2", name: histoire_p2, widget: text }
-          - { label: "Paragraphe 3", name: histoire_p3, widget: text }
-          - label: "Valeur 1"
-            name: valeur1_title
-            widget: string
-          - { label: "Texte valeur 1", name: valeur1_text, widget: text }
-          - label: "Valeur 2"
-            name: valeur2_title
-            widget: string
-          - { label: "Texte valeur 2", name: valeur2_text, widget: text }
-          - label: "Valeur 3"
-            name: valeur3_title
-            widget: string
-          - { label: "Texte valeur 3", name: valeur3_text, widget: text }
+          - { label: "Label section Histoire", name: histoire_label, widget: string }
+          - { label: "Titre Histoire", name: histoire_title, widget: string }
+          - { label: "Histoire — Paragraphe 1", name: histoire_p1, widget: text }
+          - { label: "Histoire — Paragraphe 2", name: histoire_p2, widget: text }
+          - { label: "Histoire — Paragraphe 3", name: histoire_p3, widget: text }
+          - { label: "Label section Équipe", name: equipe_label, widget: string }
+          - { label: "Titre section Équipe", name: equipe_title, widget: string }
+          - { label: "Membre 1 — Prénom", name: membre1_name, widget: string }
+          - { label: "Membre 1 — Rôle", name: membre1_role, widget: string }
+          - { label: "Membre 2 — Prénom", name: membre2_name, widget: string }
+          - { label: "Membre 2 — Rôle", name: membre2_role, widget: string }
+          - { label: "Membre 3 — Prénom", name: membre3_name, widget: string }
+          - { label: "Membre 3 — Rôle", name: membre3_role, widget: string }
+          - { label: "Membre 4 — Prénom", name: membre4_name, widget: string }
+          - { label: "Membre 4 — Rôle", name: membre4_role, widget: string }
+          - { label: "Label section Locaux", name: locaux_label, widget: string }
+          - { label: "Titre section Locaux", name: locaux_title, widget: string }
+          - { label: "Label section EGD", name: egd_label, widget: string }
+          - { label: "Titre section EGD", name: egd_title, widget: string }
+          - { label: "EGD — Paragraphe 1", name: egd_p1, widget: text }
+          - { label: "EGD — Paragraphe 2", name: egd_p2, widget: text }
+          - { label: "EGD Service 1 — Titre", name: egd_item1_title, widget: string }
+          - { label: "EGD Service 1 — Texte", name: egd_item1_text, widget: text }
+          - { label: "EGD Service 2 — Titre", name: egd_item2_title, widget: string }
+          - { label: "EGD Service 2 — Texte", name: egd_item2_text, widget: text }
+          - { label: "EGD Service 3 — Titre", name: egd_item3_title, widget: string }
+          - { label: "EGD Service 3 — Texte", name: egd_item3_text, widget: text }
+          - { label: "ORIAS — Titre", name: orias_title, widget: string }
+          - { label: "ORIAS — Sous-titre", name: orias_text, widget: string }
+          - { label: "ORIAS — Description", name: orias_desc, widget: text }
           - { label: "Titre CTA", name: cta_title, widget: string }
           - { label: "Texte CTA", name: cta_text, widget: text }
 
@@ -79,14 +103,45 @@ collections:
         file: professionnels.njk
         fields:
           - { label: "Titre SEO", name: title, widget: string }
-          - { label: "Description SEO", name: description, widget: string }
+          - { label: "Description SEO", name: description, widget: text }
+          - { label: "Label héro", name: hero_label, widget: string }
           - { label: "Titre héro", name: hero_title, widget: string }
           - { label: "Texte héro", name: hero_text, widget: text }
+          - { label: "Label intro", name: intro_label, widget: string }
           - { label: "Titre intro", name: intro_title, widget: string }
-          - { label: "Paragraphe intro 1", name: intro_p1, widget: text }
-          - { label: "Paragraphe intro 2", name: intro_p2, widget: text }
-          - { label: "Titre services", name: services_title, widget: string }
-          - { label: "Intro services", name: services_intro, widget: text }
+          - { label: "Intro — Paragraphe 1", name: intro_p1, widget: text }
+          - { label: "Intro — Paragraphe 2", name: intro_p2, widget: text }
+          - { label: "Pilier 1 — Titre", name: pillar1_title, widget: string }
+          - { label: "Pilier 1 — Texte", name: pillar1_text, widget: text }
+          - { label: "Pilier 2 — Titre", name: pillar2_title, widget: string }
+          - { label: "Pilier 2 — Texte", name: pillar2_text, widget: text }
+          - { label: "Pilier 3 — Titre", name: pillar3_title, widget: string }
+          - { label: "Pilier 3 — Texte", name: pillar3_text, widget: text }
+          - { label: "Label section Services", name: services_label, widget: string }
+          - { label: "Titre section Services", name: services_title, widget: string }
+          - { label: "Intro Services", name: services_intro, widget: text }
+          - { label: "Service 1 — Titre", name: s1_title, widget: string }
+          - { label: "Service 1 — Description", name: s1_desc, widget: text }
+          - { label: "Service 2 — Titre", name: s2_title, widget: string }
+          - { label: "Service 2 — Description", name: s2_desc, widget: text }
+          - { label: "Service 3 — Titre", name: s3_title, widget: string }
+          - { label: "Service 3 — Description", name: s3_desc, widget: text }
+          - { label: "Service 4 — Titre", name: s4_title, widget: string }
+          - { label: "Service 4 — Description", name: s4_desc, widget: text }
+          - { label: "Service 5 — Titre", name: s5_title, widget: string }
+          - { label: "Service 5 — Description", name: s5_desc, widget: text }
+          - { label: "Label section Pourquoi", name: why_label, widget: string }
+          - { label: "Titre section Pourquoi", name: why_title, widget: string }
+          - { label: "Argument 1 — Chiffre", name: why1_num, widget: string }
+          - { label: "Argument 1 — Titre", name: why1_title, widget: string }
+          - { label: "Argument 1 — Texte", name: why1_text, widget: text }
+          - { label: "Argument 2 — Chiffre", name: why2_num, widget: string }
+          - { label: "Argument 2 — Titre", name: why2_title, widget: string }
+          - { label: "Argument 2 — Texte", name: why2_text, widget: text }
+          - { label: "Argument 3 — Chiffre", name: why3_num, widget: string }
+          - { label: "Argument 3 — Titre", name: why3_title, widget: string }
+          - { label: "Argument 3 — Texte", name: why3_text, widget: text }
+          - { label: "Label CTA", name: cta_label, widget: string }
           - { label: "Titre CTA", name: cta_title, widget: string }
           - { label: "Texte CTA", name: cta_text, widget: text }
 
@@ -95,11 +150,36 @@ collections:
         file: particuliers.njk
         fields:
           - { label: "Titre SEO", name: title, widget: string }
-          - { label: "Description SEO", name: description, widget: string }
+          - { label: "Description SEO", name: description, widget: text }
+          - { label: "Label héro", name: hero_label, widget: string }
           - { label: "Titre héro", name: hero_title, widget: string }
           - { label: "Texte héro", name: hero_text, widget: text }
-          - { label: "Titre services", name: services_title, widget: string }
-          - { label: "Intro services", name: services_intro, widget: text }
+          - { label: "Label section Services", name: services_label, widget: string }
+          - { label: "Titre section Services", name: services_title, widget: string }
+          - { label: "Intro Services", name: services_intro, widget: text }
+          - { label: "Service 1 — Titre", name: c1_title, widget: string }
+          - { label: "Service 1 — Description", name: c1_desc, widget: text }
+          - { label: "Service 2 — Titre", name: c2_title, widget: string }
+          - { label: "Service 2 — Description", name: c2_desc, widget: text }
+          - { label: "Service 3 — Titre", name: c3_title, widget: string }
+          - { label: "Service 3 — Description", name: c3_desc, widget: text }
+          - { label: "Service 4 — Titre", name: c4_title, widget: string }
+          - { label: "Service 4 — Description", name: c4_desc, widget: text }
+          - { label: "Service 5 — Titre", name: c5_title, widget: string }
+          - { label: "Service 5 — Description", name: c5_desc, widget: text }
+          - { label: "Service 6 — Titre", name: c6_title, widget: string }
+          - { label: "Service 6 — Description", name: c6_desc, widget: text }
+          - { label: "Label section Pourquoi", name: why_label, widget: string }
+          - { label: "Titre section Pourquoi", name: why_title, widget: string }
+          - { label: "Argument 1 — Chiffre", name: why1_num, widget: string }
+          - { label: "Argument 1 — Titre", name: why1_title, widget: string }
+          - { label: "Argument 1 — Texte", name: why1_text, widget: text }
+          - { label: "Argument 2 — Chiffre", name: why2_num, widget: string }
+          - { label: "Argument 2 — Titre", name: why2_title, widget: string }
+          - { label: "Argument 2 — Texte", name: why2_text, widget: text }
+          - { label: "Argument 3 — Chiffre", name: why3_num, widget: string }
+          - { label: "Argument 3 — Titre", name: why3_title, widget: string }
+          - { label: "Argument 3 — Texte", name: why3_text, widget: text }
           - { label: "Titre CTA", name: cta_title, widget: string }
           - { label: "Texte CTA", name: cta_text, widget: text }
 
@@ -107,11 +187,15 @@ collections:
         label: Contact
         file: contact.njk
         fields:
+          - { label: "Titre SEO", name: title, widget: string }
+          - { label: "Description SEO", name: description, widget: text }
           - { label: "Titre héro", name: hero_title, widget: string }
           - { label: "Texte héro", name: hero_text, widget: text }
           - { label: "Titre formulaire", name: form_title, widget: string }
-          - { label: "Introduction formulaire", name: form_intro, widget: text }
+          - { label: "Intro formulaire", name: form_intro, widget: text }
           - { label: "Horaires", name: hours_text, widget: text }
+          - { label: "Label coordonnées", name: sidebar_label, widget: string }
+          - { label: "Texte badge ORIAS", name: orias_subtitle, widget: string }
 
   - name: site
     label: Informations du site
