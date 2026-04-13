@@ -14,15 +14,16 @@ histoire_p1: "Stéphane Talleur exerce le métier d'assureur depuis plus de 30 a
 histoire_p2: "Sans lien exclusif avec aucun assureur, Stégéas analyse chaque situation, compare les offres du marché et oriente vers la solution la plus adaptée pour une PME toulousaine, un particulier ou une profession libérale."
 histoire_p3: "Ce positionnement d'indépendance totale, combiné à une expertise de terrain et à une disponibilité réelle, fait la réputation du cabinet depuis plus de deux décennies."
 
-valeurs_label: Nos valeurs
-valeurs_title: Ce qui nous guide
-
-valeur1_title: Indépendance totale
-valeur1_text: "Aucun lien exclusif avec une compagnie d'assurance. Notre seul engagement est envers vous."
-valeur2_title: Expertise terrain
-valeur2_text: "Plus de 30 ans d'expérience pour comprendre vos risques réels et trouver la meilleure couverture."
-valeur3_title: Proximité humaine
-valeur3_text: "Un interlocuteur dédié, disponible, qui connaît votre dossier et répond présent en cas de sinistre."
+equipe_label: Notre équipe
+equipe_title: Ceux qui vous accompagnent
+membre1_name: Stéphane
+membre1_role: Fondateur et dirigeant
+membre2_name: Sylvie
+membre2_role: Collaboratrice d'agence
+membre3_name: Michèle
+membre3_role: Gestionnaire sinistre
+membre4_name: Eric
+membre4_role: Conseiller en assurances
 
 locaux_label: Nos locaux
 locaux_title: Un cadre qui vous ressemble
@@ -31,6 +32,16 @@ egd_label: Partenaire
 egd_title: "Associé à<br />EGD Finances"
 egd_p1: "L'expertise de Stégéas vient se joindre à celle du cabinet <strong>EGD Finances</strong>, indépendant et spécialisé dans le courtage en financements, placements, acquisitions et conseils financiers."
 egd_p2: "Ainsi, nous sommes en mesure de répondre à l'intégralité de vos demandes directement depuis nos locaux au 2 Rue du Pré Fermé, 31200 Toulouse."
+egd_item1_title: Courtage en financements
+egd_item1_text: "Crédits immobiliers, professionnels et personnels aux meilleures conditions."
+egd_item2_title: Placements financiers
+egd_item2_text: "Épargne, investissements et solutions de défiscalisation adaptées à votre profil."
+egd_item3_title: Acquisitions immobilières
+egd_item3_text: "Accompagnement complet pour vos projets d'achat, de la recherche à la signature."
+
+orias_title: "Immatriculé ORIAS N° 07006002"
+orias_text: "Courtier en assurances — registre vérifiable sur orias.fr"
+orias_desc: "L'immatriculation ORIAS garantit que Stégéas respecte les conditions d'honorabilité, de capacité professionnelle et de garantie financière imposées par la réglementation française en matière de courtage en assurances."
 
 cta_title: Prenons contact
 cta_text: "Vous avez un besoin ou une question ? Notre équipe est à votre écoute."
@@ -225,13 +236,9 @@ cta_text: "Vous avez un besoin ou une question ? Notre équipe est à votre éco
   @media (max-width: 960px) {
     .equipe__grid { grid-template-columns: repeat(2, 1fr); }
     .histoire__inner { grid-template-columns: 1fr; gap: 2rem; }
-    .valeurs__grid { grid-template-columns: repeat(2, 1fr); }
     .locaux__grid { grid-template-columns: 1fr; }
     .egd__inner { grid-template-columns: 1fr; gap: 2rem; }
     .orias-band__inner { flex-direction: column; align-items: flex-start; }
-  }
-  @media (max-width: 640px) {
-    .valeurs__grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .equipe__grid { grid-template-columns: repeat(2, 1fr); }
@@ -272,71 +279,45 @@ cta_text: "Vous avez un besoin ou une question ? Notre équipe est à votre éco
 
   <section class="equipe" aria-labelledby="equipe-title">
     <div class="container">
-      <p class="section-label">Notre équipe</p>
-      <h2 id="equipe-title">Ceux qui vous accompagnent</h2>
+      <p class="section-label">{{ equipe_label }}</p>
+      <h2 id="equipe-title">{{ equipe_title }}</h2>
       <div class="equipe__grid">
         <article class="membre">
           <div class="membre__photo">
-            <img src="/assets/stephane-president.jpg?v=2" alt="Stéphane, fondateur et dirigeant de Stégéas à Toulouse" />
+            <img src="/assets/stephane-president.jpg?v=2" alt="{{ membre1_name }}, {{ membre1_role }} de Stégéas à Toulouse" />
           </div>
           <div class="membre__info">
-            <h3>Stéphane</h3>
-            <p class="membre__role">Fondateur et dirigeant</p>
+            <h3>{{ membre1_name }}</h3>
+            <p class="membre__role">{{ membre1_role }}</p>
           </div>
         </article>
         <article class="membre">
           <div class="membre__photo">
-            <img src="/assets/sylvie.jpg" alt="Sylvie, collaboratrice d'agence chez Stégéas Toulouse" />
+            <img src="/assets/sylvie.jpg" alt="{{ membre2_name }}, {{ membre2_role }} chez Stégéas Toulouse" />
           </div>
           <div class="membre__info">
-            <h3>Sylvie</h3>
-            <p class="membre__role">Collaboratrice d'agence</p>
+            <h3>{{ membre2_name }}</h3>
+            <p class="membre__role">{{ membre2_role }}</p>
           </div>
         </article>
         <article class="membre">
           <div class="membre__photo">
-            <img src="/assets/michele.jpg" alt="Michèle, gestionnaire sinistre chez Stégéas Toulouse" />
+            <img src="/assets/michele.jpg" alt="{{ membre3_name }}, {{ membre3_role }} chez Stégéas Toulouse" />
           </div>
           <div class="membre__info">
-            <h3>Michèle</h3>
-            <p class="membre__role">Gestionnaire sinistre</p>
+            <h3>{{ membre3_name }}</h3>
+            <p class="membre__role">{{ membre3_role }}</p>
           </div>
         </article>
         <article class="membre">
           <div class="membre__photo">
-            <img src="/assets/eric.jpg" alt="Eric, conseiller en assurances chez Stégéas Toulouse" />
+            <img src="/assets/eric.jpg" alt="{{ membre4_name }}, {{ membre4_role }} chez Stégéas Toulouse" />
           </div>
           <div class="membre__info">
-            <h3>Eric</h3>
-            <p class="membre__role">Conseiller en assurances</p>
+            <h3>{{ membre4_name }}</h3>
+            <p class="membre__role">{{ membre4_role }}</p>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="valeurs" aria-labelledby="valeurs-title">
-    <div class="container">
-      <div class="valeurs__header">
-        <p class="section-label">{{ valeurs_label }}</p>
-        <h2 id="valeurs-title">{{ valeurs_title }}</h2>
-      </div>
-      <div class="valeurs__grid">
-        <div class="valeur-card">
-          <p class="valeur-card__num">01</p>
-          <h3>{{ valeur1_title }}</h3>
-          <p>{{ valeur1_text }}</p>
-        </div>
-        <div class="valeur-card">
-          <p class="valeur-card__num">02</p>
-          <h3>{{ valeur2_title }}</h3>
-          <p>{{ valeur2_text }}</p>
-        </div>
-        <div class="valeur-card">
-          <p class="valeur-card__num">03</p>
-          <h3>{{ valeur3_title }}</h3>
-          <p>{{ valeur3_text }}</p>
-        </div>
       </div>
     </div>
   </section>
@@ -373,8 +354,8 @@ cta_text: "Vous avez un besoin ou une question ? Notre équipe est à votre éco
               <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
             </div>
             <div>
-              <strong>Courtage en financements</strong>
-              <span>Crédits immobiliers, professionnels et personnels aux meilleures conditions.</span>
+              <strong>{{ egd_item1_title }}</strong>
+              <span>{{ egd_item1_text }}</span>
             </div>
           </div>
           <div class="egd-item">
@@ -382,8 +363,8 @@ cta_text: "Vous avez un besoin ou une question ? Notre équipe est à votre éco
               <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
             <div>
-              <strong>Placements financiers</strong>
-              <span>Épargne, investissements et solutions de défiscalisation adaptées à votre profil.</span>
+              <strong>{{ egd_item2_title }}</strong>
+              <span>{{ egd_item2_text }}</span>
             </div>
           </div>
           <div class="egd-item">
@@ -391,8 +372,8 @@ cta_text: "Vous avez un besoin ou une question ? Notre équipe est à votre éco
               <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
-              <strong>Acquisitions immobilières</strong>
-              <span>Accompagnement complet pour vos projets d'achat, de la recherche à la signature.</span>
+              <strong>{{ egd_item3_title }}</strong>
+              <span>{{ egd_item3_text }}</span>
             </div>
           </div>
         </div>
@@ -406,13 +387,11 @@ cta_text: "Vous avez un besoin ou une question ? Notre équipe est à votre éco
         <div class="orias-band__left">
           <span class="orias-dot" aria-hidden="true"></span>
           <div>
-            <strong>Immatriculé ORIAS N° {{ site.orias }}</strong>
-            <span>Courtier en assurances — registre vérifiable sur orias.fr</span>
+            <strong>{{ orias_title }}</strong>
+            <span>{{ orias_text }}</span>
           </div>
         </div>
-        <p class="orias-band__right">
-          L'immatriculation ORIAS garantit que Stégéas respecte les conditions d'honorabilité, de capacité professionnelle et de garantie financière imposées par la réglementation française en matière de courtage en assurances.
-        </p>
+        <p class="orias-band__right">{{ orias_desc }}</p>
       </div>
     </div>
   </section>

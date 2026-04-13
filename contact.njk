@@ -11,6 +11,9 @@ form_title: Envoyez-nous un message
 form_intro: "Remplissez le formulaire ci-dessous et nous prendrons contact avec vous dans les plus brefs délais."
 
 hours_text: "Nous sommes joignables du lundi au vendredi, de 8h30 à 12h30 et de 13h30 à 18h."
+
+sidebar_label: "Nos coordonnées"
+orias_subtitle: "Courtier en assurances — registre vérifiable sur orias.fr"
 ---
 {% extends "layouts/base.njk" %}
 
@@ -227,7 +230,7 @@ hours_text: "Nous sommes joignables du lundi au vendredi, de 8h30 à 12h30 et de
 
         <aside class="contact-sidebar" aria-label="Coordonnées">
           <div class="info-card">
-            <p class="info-card__label">Nos coordonnées</p>
+            <p class="info-card__label">{{ sidebar_label }}</p>
             <div class="info-list">
 
               <div class="info-list-item">
@@ -277,7 +280,7 @@ hours_text: "Nous sommes joignables du lundi au vendredi, de 8h30 à 12h30 et de
             <span class="orias-dot" aria-hidden="true"></span>
             <div class="orias-text">
               <strong>Immatriculé ORIAS N° {{ site.orias }}</strong>
-              Courtier en assurances — registre vérifiable sur orias.fr
+              {{ orias_subtitle }}
             </div>
           </div>
         </aside>
