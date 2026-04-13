@@ -134,6 +134,11 @@
     .sub-item strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--black); margin-bottom: 0.3rem; }
     .sub-item p { font-size: 0.78rem; color: var(--gray-text); line-height: 1.55; margin: 0; }
 
+    /* Rangée 2 cartes centrées + RC full width */
+    .scard-row-2 { grid-column: span 3; display: flex; justify-content: center; gap: 1.5rem; }
+    .scard-row-2 .scard { flex: 0 0 calc(33.333% - 0.75rem); }
+    .rc-full { grid-column: span 3; flex-direction: column; gap: 1.5rem; }
+
     /* ---- Pourquoi Stégéas ---- */
     .why { padding: 80px 0; background: var(--white); }
     .why__header { text-align: center; margin-bottom: 3.5rem; }
@@ -300,6 +305,8 @@
       .scard--wide { grid-column: span 2; flex-direction: column; }
       .scard--wide .scard__sub { grid-template-columns: repeat(2, 1fr); }
       .why__grid { grid-template-columns: repeat(2, 1fr); }
+      .scard-row-2 { grid-column: span 2; }
+      .rc-full { grid-column: span 2; }
     }
     @media (max-width: 768px) {
       .services-grid { grid-template-columns: 1fr; }
@@ -311,6 +318,9 @@
       .why__stat { padding: 1.5rem 1rem; }
       .rc-wrapper { padding: 1.25rem; }
       .intro__inner { gap: 1.5rem; }
+      .scard-row-2 { grid-column: span 1; flex-direction: column; }
+      .scard-row-2 .scard { flex: 1 1 100%; }
+      .rc-full { grid-column: span 1; }
     }
   </style>
 </head>
@@ -471,9 +481,9 @@
         </article>
 
         <!-- Véhicules + Risques spéciaux centrés -->
-        <div style="grid-column: span 3; display: flex; justify-content: center; gap: 1.5rem;">
+        <div class="scard-row-2">
 
-          <article class="scard" style="flex: 0 0 calc(33.333% - 0.75rem);">
+          <article class="scard">
             <div class="scard__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             </div>
@@ -486,7 +496,7 @@
             </div>
           </article>
 
-          <article class="scard" style="flex: 0 0 calc(33.333% - 0.75rem);">
+          <article class="scard">
             <div class="scard__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
@@ -502,7 +512,7 @@
         </div>
 
         <!-- RC Pro — grande box englobante -->
-        <div class="scard rc-wrapper" style="grid-column: span 3; flex-direction: column; gap: 1.5rem;">
+        <div class="scard rc-wrapper rc-full">
 
           <!-- Header -->
           <div style="display:flex; align-items:center; gap:1rem;">
