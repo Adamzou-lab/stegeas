@@ -1,0 +1,243 @@
+---
+title: "Stégéas — Courtier en assurance à Toulouse"
+description: "Cabinet de courtage en assurances indépendant à Toulouse depuis 2003. Professionnels, particuliers, visa Schengen. Partenaire AXA, Allianz, Generali, MMA et plus."
+canonical: /
+permalink: /index.html
+
+hero_eyebrow: "Cabinet indépendant — Toulouse"
+hero_title: "Votre courtier en assurances à Toulouse"
+
+about_tag: "Le Cabinet"
+about_title: "Stégéas<br />Votre courtier en assurances"
+about_text1: "Fondé en 2003 à Toulouse, Stégéas est un cabinet de courtage en assurances indépendant. Notre indépendance est notre force : sans lien exclusif avec une compagnie, nous analysons votre situation et vous orientons vers la solution la plus adaptée."
+about_text2: "L'expertise de Stégéas vient se joindre à celle du cabinet EGD Finances, indépendant et spécialisé dans le courtage en financements, placements, acquisitions et conseils financiers. Ainsi, nous sommes en mesure de répondre à l'intégralité de vos demandes directement depuis nos locaux."
+
+pro_section_label: "Professionnels & entreprises"
+pro_title: "Des garanties adaptées<br />à votre activité"
+
+part_section_label: "Particuliers"
+part_title: "Protégez ce qui<br />compte vraiment"
+
+contact_strip: "Un projet ? Parlons-en."
+---
+{% extends "layouts/base.njk" %}
+
+{% block head %}
+<style>
+  .bc-card-wrap {
+    position: relative;
+    z-index: 10;
+    margin-top: 0;
+    padding: 2.5rem 0;
+    text-align: center;
+    background: var(--black);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" role="presentation" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__content" style="text-align:center; max-width:100%; padding-top:1rem;">
+        <img src="/assets/logo_stegeas.png" alt="Logo Stégéas" style="height:280px; width:auto; margin:0 auto 1rem;" />
+        <p class="hero__eyebrow" style="justify-content:center; display:flex;">{{ hero_eyebrow }}</p>
+        <h1 class="hero__title" id="hero-title">{{ hero_title | safe }}</h1>
+        <div class="hero__actions" style="justify-content:center;">
+          <a href="/professionnels.html" class="btn btn-primary">
+            Assurances professionnelles
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/particuliers.html" class="btn btn-outline">
+            Assurances particuliers
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carte Business Club -->
+  <div class="bc-card-wrap" style="position:relative; height:0; overflow:visible; text-align:center; z-index:10;">
+    <div style="display:inline-flex; flex-direction:column; align-items:center; box-shadow:0 4px 20px rgba(0,0,0,0.2); transform:translateY(-50%); border-radius:12px; overflow:hidden;">
+      <div style="background:var(--white); width:min(420px, 90vw); height:110px; overflow:hidden;">
+        <img src="/assets/business-club.png?v=7" alt="Stégéas — Membre Business Club Stade Toulousain" style="width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.05);" />
+      </div>
+      <div style="width:100%; background:var(--black); text-align:center; padding:0.6rem 1.5rem; border-radius:0 0 12px 12px;">
+        <p style="font-size:0.85rem; font-weight:700; letter-spacing:0.12em; color:var(--white); text-transform:uppercase;">Membre — Saison 2025–2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- À PROPOS -->
+  <section class="about" id="cabinet" aria-labelledby="about-title" style="padding-top:130px;">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__text">
+          <span class="about__tag">{{ about_tag }}</span>
+          <h2 id="about-title">{{ about_title | safe }}</h2>
+          <p>{{ about_text1 }}</p>
+          <p>{{ about_text2 }}</p>
+          <div class="about__orias">
+            <span class="about__orias-dot"></span>
+            <div>
+              <strong>Immatriculé ORIAS</strong><br />
+              N° {{ site.orias }} — Courtier en assurances
+            </div>
+          </div>
+        </div>
+        <div class="about__visual" aria-hidden="true">
+          <img class="about__photo" src="/assets/cabinet-exterieur.png" alt="Façade du cabinet Stégéas à Toulouse" />
+          <div class="about__badge">
+            <span class="about__badge-num">{{ site.founded }}</span>
+            <span class="about__badge-text">Fondé à Toulouse</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PROFESSIONNELS -->
+  <section class="services" id="professionnels" aria-labelledby="pro-title">
+    <div class="container">
+      <div class="services__header">
+        <div class="services__header-text">
+          <p class="section-label">{{ pro_section_label }}</p>
+          <h2 id="pro-title">{{ pro_title | safe }}</h2>
+        </div>
+        <a href="/professionnels.html" class="services__link">
+          Voir tous les services
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+          <h3>Multirisques professionnelles</h3>
+          <p>Protection complète de vos locaux, équipements et responsabilités pour tout type d'activité.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Responsabilité civile professionnelle</h3>
+          <p>RC exploitation, RC Pro VTC, exploitation agricole — couverture des dommages causés aux tiers.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <h3>Santé, prévoyance &amp; retraite</h3>
+          <p>Couvertures collectives pour vos salariés et solutions individuelles pour les indépendants.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Véhicules d'entreprise</h3>
+          <p>Flotte automobile, véhicules utilitaires — formules adaptées à la taille de votre parc.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <h3>Risques techniques</h3>
+          <p>Couverture des bris de machines, des équipements électroniques et des risques de montage.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Risques spéciaux</h3>
+          <p>Solutions sur-mesure pour les risques hors normes : événementiel, industrie, collections, etc.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PARTICULIERS -->
+  <section class="services bg-gray" id="particuliers" aria-labelledby="part-title">
+    <div class="container">
+      <div class="services__header">
+        <div class="services__header-text">
+          <p class="section-label">{{ part_section_label }}</p>
+          <h2 id="part-title">{{ part_title | safe }}</h2>
+        </div>
+        <a href="/particuliers.html" class="services__link">
+          Voir tous les services
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3>Assurance habitation</h3>
+          <p>Propriétaire ou locataire, protection de votre logement et de vos biens contre tous les risques.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Assurance vie</h3>
+          <p>Épargne, transmission de patrimoine et protection de vos proches avec les meilleures conditions du marché.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Assurances véhicules</h3>
+          <p>Auto, moto, camping-car — du tiers au tous risques, avec assistance et garanties adaptées.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <h3>Santé &amp; prévoyance</h3>
+          <p>Mutuelle santé individuelle et prévoyance — remboursements optimisés, prix négociés.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Visa Schengen</h3>
+          <p>Assurance voyage obligatoire pour l'obtention de votre visa. Couverture rapide, prix compétitif.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Divers &amp; loisirs</h3>
+          <p>Plaisance, sports, animaux de compagnie — des garanties spécifiques pour chaque passion.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTENAIRES -->
+  <section class="partners" aria-label="Nos compagnies partenaires">
+    <div class="container">
+      <p class="partners__title">Nos compagnies partenaires</p>
+      <div class="partners__marquee">
+        <div class="partners__track">
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00de1a8d6285b7bcda7_AXA.svg.webp" alt="AXA" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00fb2cf4786860d4fc8_Allianz.webp" alt="Allianz" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d010e1a8d6285b7bcddb_generali.webp" alt="Generali" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12354ebc43d0be5b260_MMA.webp" alt="MMA" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00db2cf47d8710d4fb4_Alptis.webp" alt="Alptis" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00d6768b71fbdbfa381_ASAF%20%26%20AFPS.webp" alt="ASAF &amp; AFPS" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83f2b0b55eb72b61b0a30_Swiss_Life_logo_SwissLife.png" alt="Swiss Life" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12654ebc4e896e5b269_April.webp" alt="April" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d124088cadce7834ee97_Solly%20Azar.webp" alt="Solly Azar" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00c73dd1d5a5a22ea2f_Albingia.webp" alt="Albingia" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83ee1e91234a9309fdf3d_logo-assurmax.png" alt="Assurmax" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83e7190801c5120d19519_groupama-nouvelle-identite-viquelle-logo-696x268.png" alt="Groupama" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00de1a8d6285b7bcda7_AXA.svg.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00fb2cf4786860d4fc8_Allianz.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d010e1a8d6285b7bcddb_generali.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12354ebc43d0be5b260_MMA.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00db2cf47d8710d4fb4_Alptis.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83f2b0b55eb72b61b0a30_Swiss_Life_logo_SwissLife.png" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12654ebc4e896e5b269_April.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d124088cadce7834ee97_Solly%20Azar.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00c73dd1d5a5a22ea2f_Albingia.webp" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83ee1e91234a9309fdf3d_logo-assurmax.png" alt="" aria-hidden="true" />
+          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83e7190801c5120d19519_groupama-nouvelle-identite-viquelle-logo-696x268.png" alt="" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <section class="contact-strip" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div style="text-align:center;">
+        <h2 id="contact-title" style="color:var(--white); font-size:1rem; font-weight:600;">
+          {{ contact_strip | safe }}
+        </h2>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
