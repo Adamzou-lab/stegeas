@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Stégéas, courtier en assurance à Toulouse</title>
+  <meta name="description" content="Contactez Stégéas, votre courtier en assurances indépendant à Toulouse. Formulaire, téléphone, email et adresse. Réponse rapide garantie." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stegeas.com/contact.html" />
+  <meta property="og:title" content="Contact — Stégéas, courtier en assurance à Toulouse" />
+  <meta property="og:description" content="Contactez Stégéas à Toulouse. 2 Rue du Pré Fermé, 31200 Toulouse. Tél : 05 62 88 37 04. Réponse rapide garantie." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.stegeas.com/contact.html" />
+  <meta property="og:image" content="https://www.stegeas.com/assets/toulouse.webp" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Stégéas" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css?v=8" />
+
+  <style>
+    /* ---- Page hero (compact) ---- */
+    .page-hero {
+      background: var(--black);
+      padding: calc(var(--nav-h) + 4rem) 0 4rem;
+    }
+    .page-hero__inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .page-hero .section-label { color: rgba(255,255,255,0.45); }
+    .page-hero h1 { color: var(--white); margin-bottom: 1rem; }
+    .page-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    /* ---- Main contact layout ---- */
+    .contact-main { padding: 80px 0; background: var(--gray-light); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ---- Form ---- */
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+
+    .contact-form-wrap h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-form-wrap > p {
+      font-size: 0.875rem;
+      color: var(--gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-group:last-of-type { margin-bottom: 0; }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: 0.02em;
+    }
+    .form-group label .required {
+      color: var(--bordeaux);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--black);
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #b0aaa5; }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--bordeaux);
+      box-shadow: 0 0 0 3px rgba(123,28,46,0.08);
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .form-submit {
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .form-submit .btn {
+      font-family: 'Inter', sans-serif;
+      border: none;
+      cursor: pointer;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--gray-text);
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      color: #166534;
+      margin-top: 1.25rem;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .form-success.visible { display: flex; }
+    .form-success svg { flex-shrink: 0; stroke: #16a34a; }
+
+    /* ---- Sidebar info ---- */
+    .contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+
+    .info-card__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bordeaux);
+      margin-bottom: 1.25rem;
+    }
+
+    .info-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .info-list-item {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(123,28,46,0.07);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .info-icon svg { width: 16px; height: 16px; stroke: var(--bordeaux); fill: none; }
+
+    .info-list-item__text { display: flex; flex-direction: column; gap: 0.15rem; }
+    .info-list-item__title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .info-list-item__value {
+      font-size: 0.875rem;
+      color: var(--gray-text);
+      line-height: 1.5;
+    }
+    .info-list-item__value a {
+      color: var(--bordeaux);
+      transition: opacity var(--transition);
+    }
+    .info-list-item__value a:hover { opacity: 0.75; }
+
+    /* Hours table */
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 0.25rem; }
+    .hours-table td {
+      font-size: 0.82rem;
+      padding: 0.45rem 0;
+      color: var(--gray-text);
+      vertical-align: middle;
+    }
+    .hours-table td:first-child { color: var(--black); font-weight: 500; white-space: nowrap; padding-right: 1rem; }
+
+    /* ORIAS badge */
+    .orias-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--gray-light);
+      border-radius: var(--radius);
+      padding: 0.875rem 1rem;
+    }
+    .orias-dot {
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .orias-text { font-size: 0.8rem; color: var(--gray-text); }
+    .orias-text strong { color: var(--black); font-size: 0.875rem; display: block; }
+
+    /* EGD card */
+    .egd-card {
+      border-left: 3px solid var(--bordeaux);
+      background: var(--white);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+    }
+    .egd-card p {
+      font-size: 0.85rem;
+      color: var(--gray-text);
+      line-height: 1.65;
+    }
+    .egd-card strong { color: var(--black); }
+
+    /* ---- Map ---- */
+    .map-section { padding: 0 0 80px; background: var(--gray-light); }
+    .map-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--gray-mid);
+      height: 360px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 960px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-sidebar { order: -1; }
+      .info-card + .info-card { display: none; } /* keep only first card on mobile */
+    }
+    @media (max-width: 640px) {
+      .contact-form-wrap { padding: 1.75rem 1.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .map-wrap { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==============================
+       NAVIGATION
+  ============================== -->
+  <nav class="nav" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Stégéas — Accueil">
+        <img
+          src="assets/logo_stegeas.png"
+          alt="Logo Stégéas"
+          width="120" height="40"
+        />
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/cabinet.html">Le Cabinet</a></li>
+        <li><a href="/professionnels.html">Professionnels</a></li>
+        <li><a href="/particuliers.html">Particuliers</a></li>
+        <li><a href="https://travel-protect.neat.eu" target="_blank" rel="noopener">Visa Schengen</a></li>
+      </ul>
+      <div class="nav__right">
+        <a href="/contact.html" class="nav__cta">Nous contacter</a>
+        <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" role="navigation" aria-label="Menu mobile">
+    <a href="/">Accueil</a>
+    <a href="/cabinet.html">Le Cabinet</a>
+    <a href="/professionnels.html">Professionnels</a>
+    <a href="/particuliers.html">Particuliers</a>
+    <a href="https://travel-protect.neat.eu" target="_blank" rel="noopener">Visa Schengen</a>
+    <a href="/contact.html" class="nav__cta">Nous contacter</a>
+  </div>
+
+
+  <!-- ==============================
+       PAGE HERO
+  ============================== -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <div class="page-hero__inner">
+        <h1 id="page-title">Contactez-nous</h1>
+        <p>Professionnels ou particuliers, notre équipe est à votre écoute pour analyser votre situation et vous orienter vers la meilleure solution.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       CONTACT MAIN
+  ============================== -->
+  <section class="contact-main" aria-label="Formulaire et coordonnées">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- FORM -->
+        <div class="contact-form-wrap">
+          <h2>Envoyez-nous un message</h2>
+          <p>Remplissez le formulaire ci-dessous et nous prendrons contact avec vous dans les plus brefs délais.</p>
+
+          <form id="contactForm" action="#" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Nom <span class="required" aria-hidden="true">*</span></label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required autocomplete="family-name" />
+              </div>
+              <div class="form-group">
+                <label for="prenom">Prénom <span class="required" aria-hidden="true">*</span></label>
+                <input type="text" id="prenom" name="prenom" placeholder="Jean" required autocomplete="given-name" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jean.dupont@email.fr" required autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="objet">Objet de la demande <span class="required" aria-hidden="true">*</span></label>
+              <select id="objet" name="objet" required>
+                <option value="" disabled selected>Sélectionnez un objet</option>
+                <option value="professionnels">Assurance professionnelle</option>
+                <option value="particuliers">Assurance particuliers</option>
+                <option value="visa">Visa Schengen</option>
+                <option value="autre">Autre demande</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" placeholder="Décrivez votre besoin en quelques mots..." required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">
+                Envoyer le message
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <p class="form-note">* Champs obligatoires</p>
+            </div>
+
+            <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Votre message a bien été envoyé. Nous vous répondons sous 24h.
+            </div>
+          </form>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="contact-sidebar" aria-label="Coordonnées">
+
+          <!-- Coordonnées -->
+          <div class="info-card">
+            <p class="info-card__label">Nos coordonnées</p>
+            <div class="info-list">
+
+              <div class="info-list-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="info-list-item__text">
+                  <span class="info-list-item__title">Adresse</span>
+                  <span class="info-list-item__value">2 Rue du Pré Fermé<br />31200 Toulouse</span>
+                </div>
+              </div>
+
+              <div class="info-list-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="info-list-item__text">
+                  <span class="info-list-item__title">Téléphone</span>
+                  <span class="info-list-item__value"><a href="tel:+33562883704">05 62 88 37 04</a></span>
+                </div>
+              </div>
+
+              <div class="info-list-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="info-list-item__text">
+                  <span class="info-list-item__title">Email</span>
+                  <span class="info-list-item__value"><a href="mailto:contact@stegeas.fr">contact@stegeas.fr</a></span>
+                </div>
+              </div>
+
+              <div class="info-list-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="info-list-item__text">
+                  <span class="info-list-item__title">Horaires</span>
+                  <p style="font-size:0.875rem; color:var(--gray-text); line-height:1.6;">Nous sommes joignables du lundi au vendredi, de 8h30 à 12h30 et de 13h30 à 18h.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ORIAS -->
+          <div class="orias-badge" role="note" aria-label="Immatriculation ORIAS">
+            <span class="orias-dot" aria-hidden="true"></span>
+            <div class="orias-text">
+              <strong>Immatriculé ORIAS N° 07006002</strong>
+              Courtier en assurances — registre vérifiable sur orias.fr
+            </div>
+          </div>
+
+          <!-- EGD Finances -->
+          <div class="egd-card" role="note">
+            <p>
+              <strong>Associé à EGD Finances</strong> — pour un accompagnement
+              global en courtage de financements, placements et acquisitions immobilières.
+              Une seule équipe pour tous vos projets patrimoniaux.
+            </p>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       MAP
+  ============================== -->
+  <section class="map-section" aria-label="Localisation">
+    <div class="container">
+      <div class="map-wrap">
+        <iframe
+          title="Localisation Stégéas — 2 Rue du Pré Fermé, 31200 Toulouse"
+          src="https://maps.google.com/maps?q=Stégéas+2+Rue+du+Pré+Fermé+31200+Toulouse&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <a href="/" class="footer__logo" aria-label="Stégéas — Accueil">
+          <img
+            src="assets/logo_stegeas.png"
+            alt="Stégéas"
+            height="32"
+          />
+        </a>
+
+        <nav class="footer__links" aria-label="Liens de bas de page">
+          <a href="/cabinet.html">Le Cabinet</a>
+          <a href="/mentions-legales.html">Mentions légales</a>
+          <a href="/contact.html">Contact</a>
+          <span style="color:rgba(255,255,255,0.2);font-size:0.75rem;">ORIAS 07006002</span>
+        </nav>
+
+        <div class="footer__socials" aria-label="Réseaux sociaux">
+          <a href="https://www.linkedin.com/company/stegeas" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbd7945dd659de0b8bc9_linked%20in%20blanc.webp" alt="LinkedIn" />
+          </a>
+          <a href="https://www.instagram.com/stegeas" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbd7832a10a41497cb2f_instagram%20blanc.webp" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/stegeas" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbdeb01dc81270f340e2_facebook%20blanc.webp" alt="Facebook" />
+          </a>
+        </div>
+
+      </div>
+
+      <p class="footer__copy">
+        © 2026 Stégéas — Cabinet de courtage en assurances à Toulouse. Tous droits réservés.
+      </p>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+  <script>
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = 'var(--bordeaux)';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      if (!valid) return;
+
+      // Simulate send
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
+      setTimeout(() => {
+        success.classList.add('visible');
+        form.reset();
+        btn.disabled = false;
+        btn.innerHTML = 'Envoyer le message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 800);
+    });
+  </script>
+</body>
+</html>

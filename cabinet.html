@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Cabinet — Stégéas, courtier en assurance à Toulouse</title>
+  <meta name="description" content="Stégéas, cabinet de courtage en assurances fondé en 2003 par Stéphane Talleur à Toulouse. Indépendant, expert, humain. Découvrez notre histoire et nos valeurs." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stegeas.com/cabinet.html" />
+  <meta property="og:title" content="Le Cabinet — Stégéas, courtier en assurance à Toulouse" />
+  <meta property="og:description" content="Fondé en 2003 par Stéphane Talleur, Stégéas est un cabinet de courtage indépendant à Toulouse. Rencontrez notre équipe." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.stegeas.com/cabinet.html" />
+  <meta property="og:image" content="https://www.stegeas.com/assets/cabinet-exterieur.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Stégéas" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css?v=8" />
+
+  <style>
+    /* ---- Hero avec photo extérieure ---- */
+    .page-hero {
+      position: relative;
+      padding: calc(var(--nav-h) + 5rem) 0 5rem;
+      overflow: hidden;
+    }
+    .page-hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/cabinet-exterieur.png');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.35);
+      z-index: 0;
+    }
+    .page-hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .page-hero .section-label { color: rgba(255,255,255,0.45); }
+    .page-hero h1 { color: var(--white); margin-top: 0.5rem; margin-bottom: 1.25rem; }
+    .page-hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.75; max-width: 520px; margin: 0 auto; }
+
+    /* ---- Histoire ---- */
+    .histoire { padding: 88px 0; background: var(--white); }
+    .histoire__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .histoire__text h2 { margin-bottom: 1.5rem; }
+    .histoire__text p { color: var(--gray-text); line-height: 1.85; margin-bottom: 1.1rem; font-size: 0.95rem; }
+    .histoire__text p:last-child { margin-bottom: 0; }
+
+    .histoire__photo {
+      position: relative;
+    }
+    .histoire__photo img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      display: block;
+    }
+    .histoire__photo-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(0,0,0,0.65);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- Valeurs ---- */
+    .valeurs { padding: 80px 0; background: var(--gray-light); }
+    .valeurs__header { margin-bottom: 3rem; }
+    .valeurs__header h2 { margin-top: 0.5rem; }
+
+    .valeurs__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .valeur-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    .valeur-card__num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bordeaux);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .valeur-card h3 { margin-bottom: 0.6rem; }
+    .valeur-card p { font-size: 0.875rem; color: var(--gray-text); line-height: 1.7; }
+
+    /* ---- Locaux ---- */
+    .locaux { padding: 80px 0; background: var(--white); }
+    .locaux__header { margin-bottom: 3rem; }
+    .locaux__header h2 { margin-top: 0.5rem; }
+
+    .locaux__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .locaux__photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .locaux__photo img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .locaux__photo:hover img { transform: scale(1.03); }
+    .locaux__photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1.25rem 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      color: var(--white);
+    }
+    .locaux__photo-caption strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    .locaux__photo-caption span { font-size: 0.78rem; opacity: 0.8; }
+
+    /* ---- Équipe ---- */
+    .equipe { padding: 88px 0; background: var(--white); }
+    .equipe h2 { margin-top: 0.25rem; margin-bottom: 3.5rem; }
+
+    .equipe__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .membre {
+      background: var(--gray-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .membre__photo img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .membre__info {
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+
+    .membre__info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .membre__role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bordeaux);
+    }
+
+    @media (max-width: 960px) { .equipe__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .equipe__grid { grid-template-columns: 1fr; } }
+
+    /* ---- EGD ---- */
+    .egd { padding: 80px 0; background: var(--black); }
+    .egd__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .egd__text h2 { color: var(--white); margin-bottom: 1.25rem; }
+    .egd__text p { color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+    .egd__text p:last-child { margin-bottom: 0; }
+
+    .egd__items { display: flex; flex-direction: column; gap: 1rem; }
+    .egd-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .egd-item__icon {
+      width: 38px; height: 38px;
+      background: rgba(123,28,46,0.3);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .egd-item__icon svg { width: 18px; height: 18px; stroke: var(--bordeaux); fill: none; stroke-width: 1.8; }
+    .egd-item strong { display: block; font-size: 0.875rem; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
+    .egd-item span { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+    /* ---- ORIAS ---- */
+    .orias-band { background: var(--gray-light); padding: 40px 0; }
+    .orias-band__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .orias-band__left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .orias-dot {
+      width: 10px; height: 10px;
+      background: #22c55e;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .orias-band__left div strong { display: block; font-size: 1rem; font-weight: 700; color: var(--black); }
+    .orias-band__left div span { font-size: 0.85rem; color: var(--gray-text); }
+    .orias-band__right { font-size: 0.82rem; color: var(--gray-text); max-width: 400px; line-height: 1.6; }
+
+    /* ---- CTA ---- */
+    .cta-band { background: var(--bordeaux); padding: 40px 0; text-align: center; }
+    .cta-band h2 { color: var(--white); margin-bottom: 0.5rem; font-size: 1.5rem; }
+    .cta-band p { color: rgba(255,255,255,0.75); margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .btn-white { background: var(--white); color: var(--bordeaux); border-color: var(--white); font-weight: 700; }
+    .btn-white:hover { background: var(--gray-light); border-color: var(--gray-light); }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 960px) {
+      .histoire__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .valeurs__grid { grid-template-columns: 1fr 1fr; }
+      .locaux__grid { grid-template-columns: 1fr; }
+      .egd__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .orias-band__inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 640px) {
+      .valeurs__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==============================
+       NAVIGATION
+  ============================== -->
+  <nav class="nav" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Stégéas — Accueil">
+        <img src="assets/logo_stegeas.png" alt="Logo Stégéas" width="120" height="40" />
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/cabinet.html" style="color:var(--bordeaux);">Le Cabinet</a></li>
+        <li><a href="/professionnels.html">Professionnels</a></li>
+        <li><a href="/particuliers.html">Particuliers</a></li>
+        <li><a href="https://travel-protect.neat.eu" target="_blank" rel="noopener">Visa Schengen</a></li>
+      </ul>
+      <div class="nav__right">
+        <a href="/contact.html" class="nav__cta">Nous contacter</a>
+        <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" role="navigation" aria-label="Menu mobile">
+    <a href="/">Accueil</a>
+    <a href="/cabinet.html">Le Cabinet</a>
+    <a href="/professionnels.html">Professionnels</a>
+    <a href="/particuliers.html">Particuliers</a>
+    <a href="https://travel-protect.neat.eu" target="_blank" rel="noopener">Visa Schengen</a>
+    <a href="/contact.html" class="nav__cta">Nous contacter</a>
+  </div>
+
+
+  <!-- ==============================
+       HERO
+  ============================== -->
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="page-hero__bg" role="presentation" aria-hidden="true"></div>
+    <div class="container">
+      <div class="page-hero__inner">
+        <p class="section-label">Le Cabinet</p>
+        <h1 id="page-title">Un cabinet indépendant,<br />humain et expert</h1>
+        <p>Fondé en 2003 à Toulouse par Stéphane Talleur, Stégéas accompagne particuliers et professionnels avec une seule priorité : trouver la meilleure solution pour chaque situation.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       HISTOIRE
+  ============================== -->
+  <section class="histoire" aria-labelledby="histoire-title">
+    <div class="container">
+      <div class="histoire__inner">
+
+        <div class="histoire__text">
+          <p class="section-label">Notre histoire</p>
+          <h2 id="histoire-title">Plus de 30 ans au service<br />de nos clients</h2>
+          <p>Stéphane Talleur exerce le métier d'assureur depuis plus de 30 ans. En 2003, il fonde Stégéas à Toulouse avec une conviction simple : un courtier indépendant travaille pour ses clients, pas pour les compagnies.</p>
+          <p>Sans lien exclusif avec aucun assureur, Stégéas analyse chaque situation, compare les offres du marché et oriente vers la solution la plus adaptée pour une PME toulousaine, un particulier ou une profession libérale.</p>
+          <p>Ce positionnement d'indépendance totale, combiné à une expertise de terrain et à une disponibilité réelle, fait la réputation du cabinet depuis plus de deux décennies.</p>
+        </div>
+
+        <div class="histoire__photo" aria-label="Photo extérieure du cabinet Stégéas">
+          <img src="assets/cabinet-exterieur.png" alt="Façade du cabinet Stégéas à Toulouse" />
+          <span class="histoire__photo-label">2 Rue du Pré Fermé — Toulouse</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       ÉQUIPE
+  ============================== -->
+  <section class="equipe" aria-labelledby="equipe-title">
+    <div class="container">
+      <p class="section-label">Notre équipe</p>
+      <h2 id="equipe-title">Ceux qui vous accompagnent</h2>
+
+      <div class="equipe__grid">
+
+        <article class="membre">
+          <div class="membre__photo">
+            <img src="assets/stephane-president.jpg?v=2" alt="Stéphane, fondateur et dirigeant de Stégéas à Toulouse" />
+          </div>
+          <div class="membre__info">
+            <h3>Stéphane</h3>
+            <p class="membre__role">Fondateur et dirigeant</p>
+          </div>
+        </article>
+
+        <article class="membre">
+          <div class="membre__photo">
+            <img src="assets/sylvie.jpg" alt="Sylvie, collaboratrice d'agence chez Stégéas Toulouse" />
+          </div>
+          <div class="membre__info">
+            <h3>Sylvie</h3>
+            <p class="membre__role">Collaboratrice d'agence</p>
+          </div>
+        </article>
+
+        <article class="membre">
+          <div class="membre__photo">
+            <img src="assets/michele.jpg" alt="Michèle, gestionnaire sinistre chez Stégéas Toulouse" />
+          </div>
+          <div class="membre__info">
+            <h3>Michèle</h3>
+            <p class="membre__role">Gestionnaire sinistre</p>
+          </div>
+        </article>
+
+        <article class="membre">
+          <div class="membre__photo">
+            <img src="assets/eric.jpg" alt="Eric, conseiller en assurances chez Stégéas Toulouse" />
+          </div>
+          <div class="membre__info">
+            <h3>Eric</h3>
+            <p class="membre__role">Conseiller en assurances</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ==============================
+       LES LOCAUX
+  ============================== -->
+  <section class="locaux" aria-labelledby="locaux-title">
+    <div class="container">
+      <div class="locaux__header">
+        <p class="section-label">Nos locaux</p>
+        <h2 id="locaux-title">Un cadre qui vous ressemble</h2>
+      </div>
+      <div class="locaux__grid">
+
+        <div class="locaux__photo">
+          <img src="assets/cabinet-interieur.png" alt="Intérieur du cabinet Stégéas" />
+        </div>
+
+        <div class="locaux__photo">
+          <img src="assets/aquarium.png" alt="Aquarium marin du cabinet Stégéas" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       EGD FINANCES
+  ============================== -->
+  <section class="egd" aria-labelledby="egd-title">
+    <div class="container">
+      <div class="egd__inner">
+
+        <div class="egd__text">
+          <p class="section-label" style="color:rgba(255,255,255,0.4);">Partenaire</p>
+          <h2 id="egd-title">Associé à<br />EGD Finances</h2>
+          <p>L'expertise de Stégéas vient se joindre à celle du cabinet <strong style="color:var(--white);">EGD Finances</strong>, indépendant et spécialisé dans le courtage en financements, placements, acquisitions et conseils financiers.</p>
+          <p>Ainsi, nous sommes en mesure de répondre à l'intégralité de vos demandes directement depuis nos locaux au 2 Rue du Pré Fermé, 31200 Toulouse.</p>
+        </div>
+
+        <div class="egd__items" aria-label="Services EGD Finances">
+          <div class="egd-item">
+            <div class="egd-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div>
+              <strong>Courtage en financements</strong>
+              <span>Crédits immobiliers, professionnels et personnels aux meilleures conditions.</span>
+            </div>
+          </div>
+          <div class="egd-item">
+            <div class="egd-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <strong>Placements financiers</strong>
+              <span>Épargne, investissements et solutions de défiscalisation adaptées à votre profil.</span>
+            </div>
+          </div>
+          <div class="egd-item">
+            <div class="egd-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Acquisitions immobilières</strong>
+              <span>Accompagnement complet pour vos projets d'achat, de la recherche à la signature.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       ORIAS
+  ============================== -->
+  <section class="orias-band" aria-label="Immatriculation ORIAS">
+    <div class="container">
+      <div class="orias-band__inner">
+        <div class="orias-band__left">
+          <span class="orias-dot" aria-hidden="true"></span>
+          <div>
+            <strong>Immatriculé ORIAS N° 07006002</strong>
+            <span>Courtier en assurances — registre vérifiable sur orias.fr</span>
+          </div>
+        </div>
+        <p class="orias-band__right">
+          L'immatriculation ORIAS garantit que Stégéas respecte les conditions d'honorabilité, de capacité professionnelle et de garantie financière imposées par la réglementation française en matière de courtage en assurances.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       CTA
+  ============================== -->
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title">Prenons contact</h2>
+      <p>Vous avez un besoin ou une question ? Notre équipe est à votre écoute.</p>
+      <a href="/contact.html" class="btn btn-white">
+        Nous contacter
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="/" class="footer__logo" aria-label="Stégéas — Accueil">
+          <img src="assets/logo_stegeas.png" alt="Stégéas" height="72" />
+        </a>
+        <nav class="footer__links" aria-label="Liens de bas de page">
+          <a href="/cabinet.html">Le Cabinet</a>
+          <a href="/mentions-legales.html">Mentions légales</a>
+          <a href="/contact.html">Contact</a>
+          <span style="color:rgba(255,255,255,0.2);font-size:0.75rem;">ORIAS 07006002</span>
+        </nav>
+        <div class="footer__socials" aria-label="Réseaux sociaux">
+          <a href="https://www.linkedin.com/company/stegeas" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbd7945dd659de0b8bc9_linked%20in%20blanc.webp" alt="LinkedIn" />
+          </a>
+          <a href="https://www.instagram.com/stegeas" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbd7832a10a41497cb2f_instagram%20blanc.webp" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/stegeas" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbdeb01dc81270f340e2_facebook%20blanc.webp" alt="Facebook" />
+          </a>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 Stégéas — Cabinet de courtage en assurances à Toulouse. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
