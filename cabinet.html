@@ -184,8 +184,17 @@
       color: var(--bordeaux);
     }
 
-    @media (max-width: 960px) { .equipe__grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .equipe__grid { grid-template-columns: 1fr; } }
+    @media (max-width: 960px) {
+      .equipe__grid { grid-template-columns: repeat(2, 1fr); }
+      .histoire__inner { grid-template-columns: 1fr; gap: 2rem; }
+      .valeurs__grid { grid-template-columns: repeat(2, 1fr); }
+      .locaux__grid { grid-template-columns: 1fr; }
+      .egd__inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 560px) {
+      .equipe__grid { grid-template-columns: repeat(2, 1fr); }
+      .valeurs__grid { grid-template-columns: 1fr; }
+    }
 
     /* ---- EGD ---- */
     .egd { padding: 80px 0; background: var(--black); }
