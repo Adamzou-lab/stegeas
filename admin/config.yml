@@ -15,6 +15,7 @@ collections:
       - name: home
         label: Accueil
         file: index.njk
+        format: frontmatter
         fields:
           - { label: "Titre SEO", name: title, widget: string }
           - { label: "Description SEO", name: description, widget: text }
@@ -59,6 +60,7 @@ collections:
       - name: cabinet
         label: Le Cabinet
         file: cabinet.njk
+        format: frontmatter
         fields:
           - { label: "Titre SEO", name: title, widget: string }
           - { label: "Description SEO", name: description, widget: text }
@@ -101,6 +103,7 @@ collections:
       - name: professionnels
         label: Professionnels
         file: professionnels.njk
+        format: frontmatter
         fields:
           - { label: "Titre SEO", name: title, widget: string }
           - { label: "Description SEO", name: description, widget: text }
@@ -148,6 +151,7 @@ collections:
       - name: particuliers
         label: Particuliers
         file: particuliers.njk
+        format: frontmatter
         fields:
           - { label: "Titre SEO", name: title, widget: string }
           - { label: "Description SEO", name: description, widget: text }
@@ -186,6 +190,7 @@ collections:
       - name: contact
         label: Contact
         file: contact.njk
+        format: frontmatter
         fields:
           - { label: "Titre SEO", name: title, widget: string }
           - { label: "Description SEO", name: description, widget: text }
