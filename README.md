@@ -1,6 +1,10 @@
 # Stégéas
 
-Site vitrine de Stégéas, cabinet de courtage en assurances basé à Toulouse. Site statique multi-pages présentant le cabinet, ses offres pour les particuliers et les professionnels, et ses coordonnées.
+Site vitrine de Stégéas, cabinet de courtage en assurances basé à Toulouse. Le site présente le cabinet, ses offres pour les particuliers et les professionnels, l'assurance visa Schengen, et permet de le contacter.
+
+## Site en ligne
+
+https://steph.adamzou.fr
 
 ## Pages
 
@@ -17,20 +21,8 @@ Site vitrine de Stégéas, cabinet de courtage en assurances basé à Toulouse. 
 ## Stack
 
 - HTML, CSS et JavaScript, sans framework
-- `assets/`, `css/`, `js/` : ressources statiques
+- `assets/`, `css/`, `js/` : ressources statiques (images, styles, scripts)
 - `robots.txt` et `sitemap.xml` pour le référencement
-
-## Développement local
-
-```bash
-python3 -m http.server 8000
-```
-
-Puis ouvrir http://localhost:8000
-
-## Déploiement
-
-Le script `deploy.sh` envoie le site statique vers le serveur de production.
 
 ## Auteur
 
