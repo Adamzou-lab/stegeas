@@ -4,7 +4,7 @@ Site vitrine de Stégéas, cabinet de courtage en assurances basé à Toulouse. 
 
 ## Site en ligne
 
-https://steph.adamzou.fr
+https://stegeas.com
 
 ## Pages
 
