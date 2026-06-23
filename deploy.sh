@@ -16,4 +16,4 @@ sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" -p 
 echo "Deploiement en cours..."
 sshpass -p "$SSH_PASS" scp -o StrictHostKeyChecking=no -P "$SSH_PORT" -r ./* "$SSH_USER@$SSH_HOST:$REMOTE_DIR/"
 
-echo "Deploye sur https://steph.adamzou.fr"
+echo "Deploye sur https://stegeas.com"
