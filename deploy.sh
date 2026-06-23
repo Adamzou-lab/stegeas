@@ -1,16 +1,19 @@
 #!/bin/bash
 set -e
 
-HOST="dns.safa.hugochilemme.com"
-PORT="2008"
-USER="root"
-PASS="M6HiIfM3TiKUJOzv"
+# Identifiants lus depuis l'environnement, jamais committés.
+# Définir les variables avant de lancer le script, par exemple via un fichier .env
+# ignoré par git :  set -a; source .env; set +a; ./deploy.sh
+: "${SSH_HOST:?Définir SSH_HOST}"
+: "${SSH_PORT:?Définir SSH_PORT}"
+: "${SSH_USER:?Définir SSH_USER}"
+: "${SSH_PASS:?Définir SSH_PASS}"
 REMOTE_DIR="/var/www/stegeas"
 
-echo "→ Nettoyage du serveur..."
-sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$USER@$HOST" -p "$PORT" "rm -rf $REMOTE_DIR/*"
+echo "Nettoyage du serveur..."
+sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" -p "$SSH_PORT" "rm -rf $REMOTE_DIR/*"
 
-echo "→ Déploiement..."
-sshpass -p "$PASS" scp -o StrictHostKeyChecking=no -P "$PORT" -r ./* "$USER@$HOST:$REMOTE_DIR/"
+echo "Deploiement en cours..."
+sshpass -p "$SSH_PASS" scp -o StrictHostKeyChecking=no -P "$SSH_PORT" -r ./* "$SSH_USER@$SSH_HOST:$REMOTE_DIR/"
 
-echo "✓ Déployé sur https://steph.adamzou.fr"
+echo "Deploye sur https://steph.adamzou.fr"
