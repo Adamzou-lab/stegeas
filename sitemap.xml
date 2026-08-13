@@ -3,42 +3,42 @@
 
   <url>
     <loc>https://www.stegeas.com/</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.stegeas.com/cabinet.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <loc>https://www.stegeas.com/cabinet</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.stegeas.com/professionnels.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <loc>https://www.stegeas.com/professionnels</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.stegeas.com/particuliers.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <loc>https://www.stegeas.com/particuliers</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.stegeas.com/visa-schengen.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <loc>https://www.stegeas.com/visa-schengen</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.stegeas.com/contact.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <loc>https://www.stegeas.com/contact</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
