@@ -73,6 +73,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="assets/toulouse.webp" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/main.css?v=8" />
@@ -138,7 +139,7 @@
 
     <div class="container">
       <div class="hero__content" style="text-align:center; max-width:100%; padding-top:1rem;">
-        <img src="assets/logo_stegeas.webp" alt="Logo Stégéas" style="height:280px; width:auto; margin:0 auto 1rem;" />
+        <img src="assets/logo_stegeas.webp" alt="Logo Stégéas" style="height:280px; width:auto; margin:0 auto 1rem;" width="500" height="500" />
 
         <p class="hero__eyebrow" style="justify-content:center; display:flex;">Cabinet indépendant — Toulouse</p>
 
@@ -166,7 +167,7 @@
   <div class="bc-card-wrap" style="position:relative; height:0; overflow:visible; text-align:center; z-index:10;">
     <div style="display:inline-flex; flex-direction:column; align-items:center; box-shadow:0 4px 20px rgba(0,0,0,0.2); transform:translateY(-50%); border-radius:12px; overflow:hidden;">
       <div style="background:var(--white); width:min(420px, 90vw); height:110px; overflow:hidden;">
-        <img src="assets/business-club.webp?v=7" alt="Stégéas — Membre Business Club Stade Toulousain" style="width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.05);" />
+        <img src="assets/business-club.webp?v=7" alt="Stégéas — Membre Business Club Stade Toulousain" style="width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.05);" width="3840" height="1085" decoding="async" />
       </div>
       <div style="width:100%; background:var(--black); text-align:center; padding:0.6rem 1.5rem; border-radius:0 0 12px 12px;">
         <p style="font-size:0.85rem; font-weight:700; letter-spacing:0.12em; color:var(--white); text-transform:uppercase;">Membre — Saison 2025–2026</p>
@@ -207,8 +208,7 @@
           <img
             class="about__photo"
             src="assets/cabinet-exterieur.webp"
-            alt="Façade du cabinet Stégéas à Toulouse"
-          />
+            alt="Façade du cabinet Stégéas à Toulouse" width="671" height="514" loading="lazy" decoding="async" />
           <div class="about__badge">
             <span class="about__badge-num">2003</span>
             <span class="about__badge-text">Fondé à Toulouse</span>
@@ -372,31 +372,31 @@
       <p class="partners__title">Nos compagnies partenaires</p>
       <div class="partners__marquee">
         <div class="partners__track">
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00de1a8d6285b7bcda7_AXA.svg.webp" alt="AXA - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00fb2cf4786860d4fc8_Allianz.webp" alt="Allianz - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d010e1a8d6285b7bcddb_generali.webp" alt="Generali - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12354ebc43d0be5b260_MMA.webp" alt="MMA - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00db2cf47d8710d4fb4_Alptis.webp" alt="Alptis - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00d6768b71fbdbfa381_ASAF%20%26%20AFPS.webp" alt="ASAF &amp; AFPS" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83f2b0b55eb72b61b0a30_Swiss_Life_logo_SwissLife.png" alt="Swiss Life - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12654ebc4e896e5b269_April.webp" alt="April - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d124088cadce7834ee97_Solly%20Azar.webp" alt="Solly Azar - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00c73dd1d5a5a22ea2f_Albingia.webp" alt="Albingia - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83ee1e91234a9309fdf3d_logo-assurmax.png" alt="Assurmax - assureur partenaire Stégéas Toulouse" loading="lazy" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83e7190801c5120d19519_groupama-nouvelle-identite-viquelle-logo-696x268.png" alt="Groupama - assureur partenaire Stégéas Toulouse" loading="lazy" />
+          <img src="assets/partners/axa.webp" alt="AXA - assureur partenaire Stégéas Toulouse" width="144" height="144" />
+          <img src="assets/partners/allianz.webp" alt="Allianz - assureur partenaire Stégéas Toulouse" width="557" height="144" />
+          <img src="assets/partners/generali.webp" alt="Generali - assureur partenaire Stégéas Toulouse" width="178" height="144" />
+          <img src="assets/partners/mma.webp" alt="MMA - assureur partenaire Stégéas Toulouse" width="266" height="133" />
+          <img src="assets/partners/alptis.webp" alt="Alptis - assureur partenaire Stégéas Toulouse" width="173" height="144" />
+          <img src="assets/partners/asaf-afps.webp" alt="ASAF &amp; AFPS" width="143" height="144" />
+          <img src="assets/partners/swiss-life.webp" alt="Swiss Life - assureur partenaire Stégéas Toulouse" width="206" height="144" />
+          <img src="assets/partners/april.webp" alt="April - assureur partenaire Stégéas Toulouse" width="295" height="261" />
+          <img src="assets/partners/solly-azar.webp" alt="Solly Azar - assureur partenaire Stégéas Toulouse" width="383" height="131" />
+          <img src="assets/partners/albingia.webp" alt="Albingia - assureur partenaire Stégéas Toulouse" width="217" height="181" />
+          <img src="assets/partners/assurmax.webp" alt="Assurmax - assureur partenaire Stégéas Toulouse" width="370" height="100" />
+          <img src="assets/partners/groupama.webp" alt="Groupama - assureur partenaire Stégéas Toulouse" width="374" height="144" />
           <!-- Duplicate pour boucle seamless -->
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00de1a8d6285b7bcda7_AXA.svg.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00fb2cf4786860d4fc8_Allianz.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d010e1a8d6285b7bcddb_generali.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12354ebc43d0be5b260_MMA.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00db2cf47d8710d4fb4_Alptis.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00d6768b71fbdbfa381_ASAF%20%26%20AFPS.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83f2b0b55eb72b61b0a30_Swiss_Life_logo_SwissLife.png" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d12654ebc4e896e5b269_April.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d124088cadce7834ee97_Solly%20Azar.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6346d00c73dd1d5a5a22ea2f_Albingia.webp" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83ee1e91234a9309fdf3d_logo-assurmax.png" alt="" aria-hidden="true" />
-          <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/69a83e7190801c5120d19519_groupama-nouvelle-identite-viquelle-logo-696x268.png" alt="" aria-hidden="true" />
+          <img src="assets/partners/axa.webp" alt="" aria-hidden="true" width="144" height="144" decoding="async" />
+          <img src="assets/partners/allianz.webp" alt="" aria-hidden="true" width="557" height="144" decoding="async" />
+          <img src="assets/partners/generali.webp" alt="" aria-hidden="true" width="178" height="144" decoding="async" />
+          <img src="assets/partners/mma.webp" alt="" aria-hidden="true" width="266" height="133" decoding="async" />
+          <img src="assets/partners/alptis.webp" alt="" aria-hidden="true" width="173" height="144" decoding="async" />
+          <img src="assets/partners/asaf-afps.webp" alt="" aria-hidden="true" width="143" height="144" decoding="async" />
+          <img src="assets/partners/swiss-life.webp" alt="" aria-hidden="true" width="206" height="144" decoding="async" />
+          <img src="assets/partners/april.webp" alt="" aria-hidden="true" width="295" height="261" decoding="async" />
+          <img src="assets/partners/solly-azar.webp" alt="" aria-hidden="true" width="383" height="131" decoding="async" />
+          <img src="assets/partners/albingia.webp" alt="" aria-hidden="true" width="217" height="181" decoding="async" />
+          <img src="assets/partners/assurmax.webp" alt="" aria-hidden="true" width="370" height="100" decoding="async" />
+          <img src="assets/partners/groupama.webp" alt="" aria-hidden="true" width="374" height="144" decoding="async" />
         </div>
       </div>
     </div>
@@ -406,20 +406,6 @@
   <!-- ==============================
        FAQ
   ============================== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Accueil",
-        "item": "https://www.stegeas.com/"
-      }
-    ]
-  }
-  </script>
 
   <script type="application/ld+json">
   {
@@ -529,9 +515,7 @@
         <a href="/" class="footer__logo" aria-label="Stégéas — Accueil">
           <img
             src="assets/logo_stegeas.webp"
-            alt="Stégéas"
-            height="72"
-          />
+            alt="Stégéas" width="500" height="500" loading="lazy" decoding="async" />
         </a>
 
         <nav class="footer__links" aria-label="Liens de bas de page">
@@ -543,13 +527,13 @@
 
         <div class="footer__socials" aria-label="Réseaux sociaux">
           <a href="https://www.linkedin.com/company/stegeas" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbd7945dd659de0b8bc9_linked%20in%20blanc.webp" alt="LinkedIn" />
+            <img src="assets/social/linkedin.webp" alt="LinkedIn" width="80" height="80" loading="lazy" decoding="async" />
           </a>
           <a href="https://www.instagram.com/stegeas" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbd7832a10a41497cb2f_instagram%20blanc.webp" alt="Instagram" />
+            <img src="assets/social/instagram.webp" alt="Instagram" width="80" height="80" loading="lazy" decoding="async" />
           </a>
           <a href="https://www.facebook.com/stegeas" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="https://cdn.prod.website-files.com/63441ed9f7d7aac6edd9ad1c/6347cbdeb01dc81270f340e2_facebook%20blanc.webp" alt="Facebook" />
+            <img src="assets/social/facebook.webp" alt="Facebook" width="80" height="80" loading="lazy" decoding="async" />
           </a>
         </div>
 
