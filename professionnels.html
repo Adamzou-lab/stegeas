@@ -344,10 +344,27 @@
       .scard-row-2 .scard { flex: 1 1 100%; }
       .rc-full { grid-column: span 1; }
     }
+  
+    /* Lien d'evitement : invisible a la souris, apparait a la navigation clavier */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 200;
+      padding: 0.75rem 1.25rem;
+      background: var(--bordeaux);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 0 0 var(--radius) 0;
+    }
+    .skip-link:focus { left: 0; }
   </style>
 </head>
 <body>
 
+
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <!-- ==============================
        NAVIGATION
   ============================== -->
@@ -385,7 +402,7 @@
   <!-- ==============================
        HERO
   ============================== -->
-  <section class="page-hero" aria-labelledby="page-title">
+  <section class="page-hero" id="contenu" aria-labelledby="page-title">
     <div class="container">
       <div class="page-hero__inner">
         <p class="section-label" style="justify-content:center;">Professionnels &amp; Entreprises</p>

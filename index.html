@@ -86,10 +86,27 @@
       text-align: center;
       background: var(--black);
     }
+  
+    /* Lien d'evitement : invisible a la souris, apparait a la navigation clavier */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 200;
+      padding: 0.75rem 1.25rem;
+      background: var(--bordeaux);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 0 0 var(--radius) 0;
+    }
+    .skip-link:focus { left: 0; }
   </style>
 </head>
 <body>
 
+
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <!-- ==============================
        NAVIGATION
   ============================== -->
@@ -134,7 +151,7 @@
   <!-- ==============================
        HERO
   ============================== -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" id="contenu" aria-labelledby="hero-title">
     <div class="hero__bg" role="presentation" aria-hidden="true"></div>
 
     <div class="container">
