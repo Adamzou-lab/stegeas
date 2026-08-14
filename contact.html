@@ -185,6 +185,22 @@
     .form-success.visible { display: flex; }
     .form-success svg { flex-shrink: 0; stroke: #16a34a; }
 
+    .form-error {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      color: #991b1b;
+      margin-top: 1.25rem;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .form-error.visible { display: flex; }
+    .form-error svg { flex-shrink: 0; stroke: #dc2626; }
+    .form-error a { color: #991b1b; font-weight: 600; text-decoration: underline; }
+
     /* ---- Sidebar info ---- */
     .contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
 
@@ -372,9 +388,8 @@
           <h2>Envoyez-nous un message</h2>
           <p>Remplissez le formulaire ci-dessous et nous prendrons contact avec vous dans les plus brefs délais.</p>
 
-          <form id="contactForm" name="contact" method="POST" netlify netlify-honeypot="bot-field" novalidate>
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" style="display:none" />
+          <form id="contactForm" name="contact" method="POST" action="/api/contact" novalidate>
+            <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <div class="form-row">
               <div class="form-group">
@@ -425,6 +440,11 @@
             <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               Votre message a bien été envoyé. Nous vous répondons sous 24h.
+            </div>
+
+            <div class="form-error" id="formError" role="alert" aria-live="assertive">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Votre message n'a pas pu être envoyé. Réessayez, ou appelez-nous au <a href="tel:+33562883704">05 62 88 37 04</a>.</span>
             </div>
           </form>
         </div>
@@ -559,39 +579,48 @@
   <script>
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
+    const failure = document.getElementById('formError');
+    const LIBELLE_ENVOI = 'Envoyer le message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // Basic validation
-      const required = form.querySelectorAll('[required]');
+
+      // Validation des champs obligatoires
       let valid = true;
-      required.forEach(field => {
-        if (!field.value.trim()) {
-          field.style.borderColor = 'var(--bordeaux)';
-          valid = false;
-        } else {
-          field.style.borderColor = '';
-        }
+      form.querySelectorAll('[required]').forEach(field => {
+        const vide = !field.value.trim();
+        field.style.borderColor = vide ? 'var(--bordeaux)' : '';
+        if (vide) valid = false;
       });
       if (!valid) return;
 
       const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Envoi en cours…';
+      success.classList.remove('visible');
+      failure.classList.remove('visible');
 
-      const data = new FormData(form);
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
-        .then(() => {
-          success.classList.add('visible');
-          form.reset();
-          btn.disabled = false;
-          btn.innerHTML = 'Envoyer le message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        })
-        .catch(() => {
-          btn.disabled = false;
-          btn.textContent = 'Erreur — réessayez';
+      try {
+        const reponse = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
         });
+
+        // fetch ne rejette pas sur un statut d'erreur : sans ce test, une panne
+        // du serveur afficherait quand meme "message envoye" au visiteur.
+        if (!reponse.ok) throw new Error('statut ' + reponse.status);
+
+        form.reset();
+        success.classList.add('visible');
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (err) {
+        failure.classList.add('visible');
+        failure.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = LIBELLE_ENVOI;
+      }
     });
   </script>
 </body>
