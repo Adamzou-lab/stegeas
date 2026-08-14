@@ -133,16 +133,15 @@ export async function onRequest({ request, env }) {
     });
 
     if (!reponse.ok) {
-      const detail = await reponse.text();
-      console.error('Resend a repondu', reponse.status, detail);
-      // 422 et non 5xx : Cloudflare remplace le corps des reponses 5xx par sa
-      // propre page d'erreur, ce qui masquerait ce diagnostic.
-      return json(422, { ok: false, erreur: 'envoi impossible', statut: reponse.status, detail });
+      // Le detail reste dans les logs Cloudflare, jamais dans la reponse HTTP :
+      // il revelerait la configuration d'envoi a n'importe quel visiteur.
+      console.error('Resend a repondu', reponse.status, await reponse.text());
+      return json(502, { ok: false, erreur: 'envoi impossible' });
     }
 
     return json(200, { ok: true });
   } catch (e) {
     console.error('Echec de l appel a Resend', e);
-    return json(422, { ok: false, erreur: 'envoi impossible', detail: String(e && e.message) });
+    return json(502, { ok: false, erreur: 'envoi impossible' });
   }
 }
