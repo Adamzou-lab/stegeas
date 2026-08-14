@@ -14,7 +14,7 @@
  */
 
 const DEFAUT_TO = 'contact@stegeas.fr';
-const DEFAUT_FROM = 'Formulaire Stégéas <formulaire@send.stegeas.com>';
+const DEFAUT_FROM = 'Formulaire Stegeas <formulaire@send.stegeas.com>';
 const MAX_TAILLE = 20000; // octets, garde-fou contre les envois massifs
 
 const json = (statut, corps) =>
@@ -133,13 +133,16 @@ export async function onRequest({ request, env }) {
     });
 
     if (!reponse.ok) {
-      console.error('Resend a repondu', reponse.status, await reponse.text());
-      return json(502, { ok: false, erreur: 'envoi impossible' });
+      const detail = await reponse.text();
+      console.error('Resend a repondu', reponse.status, detail);
+      // 422 et non 5xx : Cloudflare remplace le corps des reponses 5xx par sa
+      // propre page d'erreur, ce qui masquerait ce diagnostic.
+      return json(422, { ok: false, erreur: 'envoi impossible', statut: reponse.status, detail });
     }
 
     return json(200, { ok: true });
   } catch (e) {
     console.error('Echec de l appel a Resend', e);
-    return json(502, { ok: false, erreur: 'envoi impossible' });
+    return json(422, { ok: false, erreur: 'envoi impossible', detail: String(e && e.message) });
   }
 }
