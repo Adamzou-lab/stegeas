@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png" />
   <title>Assurances Professionnelles — Stégéas, courtier à Toulouse</title>
   <meta name="description" content="Stégéas, courtier indépendant à Toulouse, vous accompagne pour toutes vos assurances professionnelles : multirisques, RC pro, flotte auto, santé collective et plus." />
   <meta name="robots" content="index, follow" />
@@ -211,7 +213,7 @@
 
     /* ---- RC Cards interactives ---- */
     .rc-card {
-      cursor: pointer;
+      cursor: default;
       position: relative;
       background: var(--white);
       border: 1px solid var(--gray-mid);
@@ -222,6 +224,9 @@
       gap: 0.75rem;
       transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
     }
+    .rc-wrapper.is-enhanced .rc-card { cursor: pointer; }
+    .rc-card:focus-within { outline: 2px solid var(--bordeaux); outline-offset: 3px; }
+    .rc-panel[hidden], .rc-panel__close[hidden] { display: none; }
     .rc-card.active {
       border-color: var(--bordeaux);
       box-shadow: 0 8px 32px rgba(123,28,46,0.12);
@@ -259,7 +264,7 @@
       margin-bottom: 2rem;
       gap: 1rem;
     }
-    .rc-panel__title { font-size: 1.25rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+    .rc-panel .rc-panel__title { font-size: 1.25rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
     .rc-panel__intro { font-size: 0.9rem; color: var(--gray-text); line-height: 1.7; max-width: 640px; }
     .rc-panel__close {
       background: none;
@@ -569,48 +574,204 @@
 
           <!-- 4 sous-cartes -->
           <div class="rc-subcards">
-            <article class="rc-card" data-rc="exploitation" role="button" tabindex="0" aria-expanded="false" aria-controls="rc-panel">
+            <article class="rc-card" data-rc="exploitation">
               <div class="scard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
               </div>
               <h3>RC Exploitation</h3>
               <p class="scard__desc">Dommages corporels, matériels ou immatériels causés à des tiers lors du fonctionnement de votre entreprise.</p>
-              <span class="rc-more">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <a class="rc-more" href="#rc-panel-exploitation" aria-controls="rc-panel-exploitation" aria-label="En savoir plus : RC Exploitation">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </article>
 
-            <article class="rc-card" data-rc="vtc" role="button" tabindex="0" aria-expanded="false" aria-controls="rc-panel">
+            <article class="rc-card" data-rc="vtc">
               <div class="scard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
               </div>
               <h3>RC Exploitation VTC</h3>
               <p class="scard__desc">Protection spécifique pour les chauffeurs VTC et taxis : passagers, retards, biens à bord, tiers impliqués.</p>
-              <span class="rc-more">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <a class="rc-more" href="#rc-panel-vtc" aria-controls="rc-panel-vtc" aria-label="En savoir plus : RC Exploitation VTC">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </article>
 
-            <article class="rc-card" data-rc="agricole" role="button" tabindex="0" aria-expanded="false" aria-controls="rc-panel">
+            <article class="rc-card" data-rc="agricole">
               <div class="scard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
               </div>
               <h3>Exploitation agricole</h3>
               <p class="scard__desc">Protection complète pour les exploitants agricoles : récoltes, bâtiments, matériel, responsabilité civile et événements naturels.</p>
-              <span class="rc-more">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <a class="rc-more" href="#rc-panel-agricole" aria-controls="rc-panel-agricole" aria-label="En savoir plus : Assurance Exploitation Agricole">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </article>
 
-            <article class="rc-card" data-rc="rcpro" role="button" tabindex="0" aria-expanded="false" aria-controls="rc-panel">
+            <article class="rc-card" data-rc="rcpro">
               <div class="scard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               </div>
               <h3>RC Professionnelle</h3>
               <p class="scard__desc">Couvre vos erreurs, omissions et manquements dans l'exercice de votre activité. Obligatoire pour de nombreuses professions réglementées.</p>
-              <span class="rc-more">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <a class="rc-more" href="#rc-panel-rcpro" aria-controls="rc-panel-rcpro" aria-label="En savoir plus : RC Professionnelle (RC Pro)">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </article>
           </div>
 
-          <!-- Séparateur + Panneau de détail -->
-          <div id="rc-separator" style="display:none; height:1px; background:var(--gray-mid); margin: 0 -2rem;"></div>
-          <div class="rc-panel" id="rc-panel" role="region" aria-live="polite" style="display:none;">
-            <!-- Contenu injecté par JS -->
-          </div>
+          <!-- Détails présents dans le HTML, lisibles aussi sans JavaScript. -->
+          <div id="rc-separator" style="height:1px; background:var(--gray-mid); margin: 0 -2rem;"></div>
+          <section class="rc-panel" id="rc-panel-exploitation" aria-labelledby="rc-title-exploitation">
+            <div class="rc-panel__header">
+              <div>
+                <h3 class="rc-panel__title" id="rc-title-exploitation">RC Exploitation</h3>
+                <p class="rc-panel__intro">La RC d'exploitation couvre les dommages causés par le fonctionnement de votre entreprise : dommages corporels, matériels ou immatériels causés à des tiers lors de votre activité commerciale, industrielle ou libérale.</p>
+              </div>
+              <button class="rc-panel__close" type="button" aria-label="Fermer le détail" hidden>
+                <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="rc-panel__grid">
+              <div class="rc-panel__block">
+                <h4>Garanties incluses</h4>
+                <ul>
+                  <li>Dommages corporels causés à des tiers (clients, fournisseurs, passants)</li>
+                  <li>Dommages matériels causés aux biens appartenant à autrui</li>
+                  <li>Préjudices immatériels (pertes financières, pertes de clientèle)</li>
+                  <li>Frais de défense et frais juridiques en cas de litige</li>
+                  <li>Faute inexcusable de l'employeur</li>
+                  <li>Dommages causés aux employés et biens sous responsabilité</li>
+                </ul>
+              </div>
+              <div class="rc-panel__block">
+                <h4>Qui est concerné ?</h4>
+                <ul>
+                  <li>PME/PMI industrie (métallurgie, textile, BTP, alimentaire)</li>
+                  <li>Activités intellectuelles et services (conseil, ESN, communication)</li>
+                  <li>Professions réglementées et libérales</li>
+                  <li>Commerçants et restaurateurs</li>
+                </ul>
+              </div>
+            </div>
+            <div class="rc-panel__cta">
+              <a href="/contact" class="btn btn-primary">Demander un devis
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
+            </div>
+          </section>
+
+          <section class="rc-panel" id="rc-panel-vtc" aria-labelledby="rc-title-vtc">
+            <div class="rc-panel__header">
+              <div>
+                <h3 class="rc-panel__title" id="rc-title-vtc">RC Exploitation VTC</h3>
+                <p class="rc-panel__intro">Les chauffeurs VTC et taxis ont des obligations légales spécifiques. La RC exploitation VTC couvre les conséquences financières des dommages dont le chauffeur serait responsable dans l'exercice de son activité professionnelle.</p>
+              </div>
+              <button class="rc-panel__close" type="button" aria-label="Fermer le détail" hidden>
+                <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="rc-panel__grid">
+              <div class="rc-panel__block">
+                <h4>Garanties incluses</h4>
+                <ul>
+                  <li>Passager blessé à bord du véhicule pendant la course</li>
+                  <li>Préjudice client suite à un retard ou une erreur d'itinéraire</li>
+                  <li>Biens dégradés ou oubliés à bord du véhicule</li>
+                  <li>Dommages causés à un tiers lors d'une intervention sur le véhicule</li>
+                  <li>Protection juridique et prise en charge des frais médicaux</li>
+                  <li>Prise en charge rapide des sinistres</li>
+                </ul>
+              </div>
+              <div class="rc-panel__block">
+                <h4>Qui est concerné ?</h4>
+                <ul>
+                  <li>Chauffeurs VTC indépendants et en société</li>
+                  <li>Taxis et transporteurs de personnes à titre onéreux</li>
+                  <li>Plateformes de covoiturage professionnel</li>
+                  <li>Services de transport médical non urgent</li>
+                </ul>
+              </div>
+            </div>
+            <div class="rc-panel__cta">
+              <a href="/contact" class="btn btn-primary">Demander un devis
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
+            </div>
+          </section>
+
+          <section class="rc-panel" id="rc-panel-agricole" aria-labelledby="rc-title-agricole">
+            <div class="rc-panel__header">
+              <div>
+                <h3 class="rc-panel__title" id="rc-title-agricole">Assurance Exploitation Agricole</h3>
+                <p class="rc-panel__intro">L'exploitation agricole présente des risques spécifiques et multiples. Stégéas analyse la nature juridique de votre exploitation, votre code NAF/APE et vos infrastructures pour vous orienter vers la couverture la plus adaptée.</p>
+              </div>
+              <button class="rc-panel__close" type="button" aria-label="Fermer le détail" hidden>
+                <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="rc-panel__grid">
+              <div class="rc-panel__block">
+                <h4>Garanties incluses</h4>
+                <ul>
+                  <li>Protection des récoltes (grêle, gel, sécheresse, inondation)</li>
+                  <li>Bâtiments agricoles : incendie, explosion, catastrophes naturelles</li>
+                  <li>Matériel et équipements agricoles (bris, vol, vandalisme)</li>
+                  <li>Responsabilité civile : dommages corporels, matériels et immatériels</li>
+                  <li>Pertes de production suite à sinistre</li>
+                  <li>Vols et actes de vandalisme sur l'exploitation</li>
+                </ul>
+              </div>
+              <div class="rc-panel__block">
+                <h4>Qui est concerné ?</h4>
+                <ul>
+                  <li>Viticulteurs et arboriculteurs</li>
+                  <li>Éleveurs et céréaliculteurs</li>
+                  <li>Maraîchers et horticulteurs</li>
+                  <li>Exploitations mixtes et coopératives agricoles</li>
+                </ul>
+              </div>
+            </div>
+            <div class="rc-panel__cta">
+              <a href="/contact" class="btn btn-primary">Demander un devis
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
+            </div>
+          </section>
+
+          <section class="rc-panel" id="rc-panel-rcpro" aria-labelledby="rc-title-rcpro">
+            <div class="rc-panel__header">
+              <div>
+                <h3 class="rc-panel__title" id="rc-title-rcpro">RC Professionnelle (RC Pro)</h3>
+                <p class="rc-panel__intro">La RC Professionnelle couvre les conséquences financières des erreurs, omissions ou manquements commis dans l'exercice de votre activité. Obligatoire pour de nombreuses professions réglementées, elle protège votre entreprise en cas de mise en cause par un client.</p>
+              </div>
+              <button class="rc-panel__close" type="button" aria-label="Fermer le détail" hidden>
+                <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="rc-panel__grid">
+              <div class="rc-panel__block">
+                <h4>Garanties incluses</h4>
+                <ul>
+                  <li>Erreurs et omissions dans la réalisation d'une prestation</li>
+                  <li>Manquement au devoir de conseil</li>
+                  <li>Non-respect des délais contractuels</li>
+                  <li>Faute professionnelle entraînant un préjudice financier</li>
+                  <li>Frais de défense et honoraires d'avocat</li>
+                  <li>Préjudices immatériels subis par vos clients</li>
+                </ul>
+              </div>
+              <div class="rc-panel__block">
+                <h4>Qui est concerné ?</h4>
+                <ul>
+                  <li>Professions réglementées (architectes, experts-comptables, avocats)</li>
+                  <li>Consultants, coachs et formateurs</li>
+                  <li>Ingénieurs, bureaux d'études et maîtres d'œuvre</li>
+                  <li>Professions médicales et paramédicales</li>
+                </ul>
+              </div>
+            </div>
+            <div class="rc-panel__cta">
+              <a href="/contact" class="btn btn-primary">Demander un devis
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
+            </div>
+          </section>
 
 
         </div>
@@ -774,147 +935,72 @@
 
   <script src="js/main.js"></script>
   <script>
-    const rcData = {
-      exploitation: {
-        title: 'RC Exploitation',
-        intro: "La RC d'exploitation couvre les dommages causés par le fonctionnement de votre entreprise : dommages corporels, matériels ou immatériels causés à des tiers lors de votre activité commerciale, industrielle ou libérale.",
-        garanties: [
-          'Dommages corporels causés à des tiers (clients, fournisseurs, passants)',
-          'Dommages matériels causés aux biens appartenant à autrui',
-          'Préjudices immatériels (pertes financières, pertes de clientèle)',
-          'Frais de défense et frais juridiques en cas de litige',
-          'Faute inexcusable de l\'employeur',
-          'Dommages causés aux employés et biens sous responsabilité',
-        ],
-        secteurs: [
-          'PME/PMI industrie (métallurgie, textile, BTP, alimentaire)',
-          'Activités intellectuelles et services (conseil, ESN, communication)',
-          'Professions réglementées et libérales',
-          'Commerçants et restaurateurs',
-        ],
-      },
-      vtc: {
-        title: 'RC Exploitation VTC',
-        intro: "Les chauffeurs VTC et taxis ont des obligations légales spécifiques. La RC exploitation VTC couvre les conséquences financières des dommages dont le chauffeur serait responsable dans l'exercice de son activité professionnelle.",
-        garanties: [
-          'Passager blessé à bord du véhicule pendant la course',
-          'Préjudice client suite à un retard ou une erreur d\'itinéraire',
-          'Biens dégradés ou oubliés à bord du véhicule',
-          'Dommages causés à un tiers lors d\'une intervention sur le véhicule',
-          'Protection juridique et prise en charge des frais médicaux',
-          'Prise en charge rapide des sinistres',
-        ],
-        secteurs: [
-          'Chauffeurs VTC indépendants et en société',
-          'Taxis et transporteurs de personnes à titre onéreux',
-          'Plateformes de covoiturage professionnel',
-          'Services de transport médical non urgent',
-        ],
-      },
-      rcpro: {
-        title: 'RC Professionnelle (RC Pro)',
-        intro: "La RC Professionnelle couvre les conséquences financières des erreurs, omissions ou manquements commis dans l'exercice de votre activité. Obligatoire pour de nombreuses professions réglementées, elle protège votre entreprise en cas de mise en cause par un client.",
-        garanties: [
-          'Erreurs et omissions dans la réalisation d\'une prestation',
-          'Manquement au devoir de conseil',
-          'Non-respect des délais contractuels',
-          'Faute professionnelle entraînant un préjudice financier',
-          'Frais de défense et honoraires d\'avocat',
-          'Préjudices immatériels subis par vos clients',
-        ],
-        secteurs: [
-          'Professions réglementées (architectes, experts-comptables, avocats)',
-          'Consultants, coachs et formateurs',
-          'Ingénieurs, bureaux d\'études et maîtres d\'œuvre',
-          'Professions médicales et paramédicales',
-        ],
-      },
-      agricole: {
-        title: 'Assurance Exploitation Agricole',
-        intro: "L'exploitation agricole présente des risques spécifiques et multiples. Stégéas analyse la nature juridique de votre exploitation, votre code NAF/APE et vos infrastructures pour vous orienter vers la couverture la plus adaptée.",
-        garanties: [
-          'Protection des récoltes (grêle, gel, sécheresse, inondation)',
-          'Bâtiments agricoles : incendie, explosion, catastrophes naturelles',
-          'Matériel et équipements agricoles (bris, vol, vandalisme)',
-          'Responsabilité civile : dommages corporels, matériels et immatériels',
-          'Pertes de production suite à sinistre',
-          'Vols et actes de vandalisme sur l\'exploitation',
-        ],
-        secteurs: [
-          'Viticulteurs et arboriculteurs',
-          'Éleveurs et céréaliculteurs',
-          'Maraîchers et horticulteurs',
-          'Exploitations mixtes et coopératives agricoles',
-        ],
-      },
-    };
-
-    const panel = document.getElementById('rc-panel');
-    const cards = document.querySelectorAll('.rc-card');
-    let current = null;
-
-    function buildPanel(key) {
-      const d = rcData[key];
-      return `
-        <div class="rc-panel__header">
-          <div>
-            <p class="rc-panel__title">${d.title}</p>
-            <p class="rc-panel__intro">${d.intro}</p>
-          </div>
-          <button class="rc-panel__close" aria-label="Fermer le détail">
-            <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
-        <div class="rc-panel__grid">
-          <div class="rc-panel__block">
-            <h4>Garanties incluses</h4>
-            <ul>${d.garanties.map(g => `<li>${g}</li>`).join('')}</ul>
-          </div>
-          <div class="rc-panel__block">
-            <h4>Qui est concerné ?</h4>
-            <ul>${d.secteurs.map(s => `<li>${s}</li>`).join('')}</ul>
-          </div>
-        </div>
-        <div class="rc-panel__cta">
-          <a href="/contact" class="btn btn-primary">Demander un devis
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
-        </div>
-      `;
-    }
-
-    function openPanel(key, card) {
-      if (current === key) {
-        closePanel();
-        return;
-      }
-      current = key;
-      cards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-expanded', 'false'); });
-      card.classList.add('active');
-      card.setAttribute('aria-expanded', 'true');
-      panel.innerHTML = buildPanel(key);
-      panel.style.display = 'block';
-      document.getElementById('rc-separator').style.display = 'block';
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-      panel.querySelector('.rc-panel__close').addEventListener('click', closePanel);
-    }
-
-    function closePanel() {
-      current = null;
-      cards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-expanded', 'false'); });
-      panel.style.display = 'none';
-      panel.innerHTML = '';
-      document.getElementById('rc-separator').style.display = 'none';
-    }
-
-    cards.forEach(card => {
-      card.addEventListener('click', () => openPanel(card.dataset.rc, card));
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(card.dataset.rc, card); }
+    (() => {
+      const wrapper = document.querySelector('.rc-wrapper');
+      const separator = document.getElementById('rc-separator');
+      const items = [...wrapper.querySelectorAll('.rc-card')].map(card => {
+        const control = card.querySelector('.rc-more');
+        const panel = document.getElementById(control.getAttribute('aria-controls'));
+        return { card, control, panel };
       });
-    });
+      let current = null;
+
+      function closePanel(restoreFocus = false) {
+        if (!current) return;
+        const previous = current;
+        previous.card.classList.remove('active');
+        previous.control.setAttribute('aria-expanded', 'false');
+        previous.panel.hidden = true;
+        separator.hidden = true;
+        current = null;
+        if (restoreFocus) previous.control.focus({ preventScroll: true });
+      }
+
+      function togglePanel(item) {
+        if (current === item) {
+          closePanel(true);
+          return;
+        }
+        closePanel();
+        current = item;
+        item.card.classList.add('active');
+        item.control.setAttribute('aria-expanded', 'true');
+        item.panel.hidden = false;
+        separator.hidden = false;
+        item.control.focus({ preventScroll: true });
+        item.panel.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'nearest'
+        });
+      }
+
+      items.forEach(item => {
+        item.panel.hidden = true;
+        item.control.setAttribute('role', 'button');
+        item.control.setAttribute('aria-expanded', 'false');
+        const close = item.panel.querySelector('.rc-panel__close');
+        close.hidden = false;
+        close.addEventListener('click', () => closePanel(true));
+        item.card.addEventListener('click', event => {
+          event.preventDefault();
+          togglePanel(item);
+        });
+        item.control.addEventListener('keydown', event => {
+          if (event.key === ' ') {
+            event.preventDefault();
+            togglePanel(item);
+          }
+        });
+      });
+      wrapper.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && current) {
+          event.preventDefault();
+          closePanel(true);
+        }
+      });
+      separator.hidden = true;
+      wrapper.classList.add('is-enhanced');
+    })();
   </script>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png" />
   <title>Assurances Particuliers — Stégéas, courtier à Toulouse</title>
   <meta name="description" content="Stégéas, courtier indépendant à Toulouse depuis 2003, vous accompagne pour toutes vos assurances particuliers : habitation, vie, véhicules, santé, visa Schengen et loisirs." />
   <meta name="robots" content="index, follow" />
@@ -152,14 +154,15 @@
     .btn-white:hover { background: var(--gray-light); border-color: var(--gray-light); }
 
     /* ---- Cards cliquables ---- */
-    .detail-card { cursor: pointer; }
+    .detail-card[role="button"] { cursor: pointer; }
+    .detail-card:focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 3px; }
     .detail-card.active {
       border-color: var(--bordeaux);
       box-shadow: 0 8px 32px rgba(123,28,46,0.12);
     }
     .detail-card.active .scard__icon { background: rgba(123,28,46,0.15); }
     .detail-more {
-      display: inline-flex;
+      display: none;
       align-items: center;
       gap: 0.4rem;
       font-size: 0.78rem;
@@ -168,10 +171,14 @@
       margin-top: auto;
       transition: gap 0.2s ease;
     }
+    .detail-card[role="button"] .detail-more { display: inline-flex; }
     .detail-card:hover .detail-more { gap: 0.65rem; }
 
     /* ---- Panneau de détail ---- */
+    .detail-separator { height: 1px; background: var(--gray-mid); margin: 1.5rem 0 0; }
+    .detail-panel[hidden], .detail-separator[hidden] { display: none; }
     .detail-panel {
+      margin-top: 1.5rem;
       background: var(--white);
       border: 1px solid var(--gray-mid);
       border-radius: 8px;
@@ -196,11 +203,12 @@
       border: 1px solid var(--gray-mid);
       border-radius: 6px;
       width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
+      display: none; align-items: center; justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
       transition: background 0.2s ease;
     }
+    .detail-panel--interactive .detail-panel__close { display: flex; }
     .detail-panel__close:hover { background: var(--gray-light); }
     .detail-panel__close svg { width: 16px; height: 16px; stroke: var(--black); fill: none; }
     .detail-panel__grid {
@@ -385,7 +393,7 @@
         </article>
 
         <!-- Ligne 2 : Habitation, Vie, Santé (cliquables) -->
-        <article class="scard detail-card" data-detail="habitation" role="button" tabindex="0" aria-expanded="false">
+        <article class="scard detail-card" data-detail="habitation">
           <div class="scard__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
@@ -400,7 +408,7 @@
           <span class="detail-more">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </article>
 
-        <article class="scard detail-card" data-detail="vie" role="button" tabindex="0" aria-expanded="false">
+        <article class="scard detail-card" data-detail="vie">
           <div class="scard__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
@@ -414,7 +422,7 @@
           <span class="detail-more">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </article>
 
-        <article class="scard detail-card" data-detail="sante" role="button" tabindex="0" aria-expanded="false">
+        <article class="scard detail-card" data-detail="sante">
           <div class="scard__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
@@ -430,9 +438,131 @@
 
       </div>
 
-      <!-- Panneau de détail -->
-      <div id="detail-separator" style="display:none; height:1px; background:var(--gray-mid); margin: 1.5rem 0 0;"></div>
-      <div class="detail-panel" id="detail-panel" role="region" aria-live="polite" style="display:none; margin-top:1.5rem;"></div>
+      <!-- Détails disponibles aussi sans JavaScript -->
+      <div class="detail-separator" id="detail-separator" aria-hidden="true"></div>
+
+      <section class="detail-panel" id="detail-habitation" aria-labelledby="detail-habitation-title" tabindex="-1">
+        <div class="detail-panel__header">
+          <div>
+            <h3 class="detail-panel__title" id="detail-habitation-title">Assurance habitation</h3>
+            <p class="detail-panel__intro">Propriétaire ou locataire, Stégéas analyse vos besoins selon la superficie, le type de bien, la valeur de vos biens mobiliers et la composition de votre foyer pour vous orienter vers la meilleure formule.</p>
+          </div>
+          <button class="detail-panel__close" type="button" aria-label="Fermer">
+            <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="detail-panel__grid">
+          <div class="detail-block">
+            <h4>Garanties incluses</h4>
+            <ul>
+              <li>Incendie et explosion</li>
+              <li>Dégâts des eaux</li>
+              <li>Cambriolage et vol</li>
+              <li>Responsabilité civile</li>
+              <li>Catastrophes naturelles</li>
+              <li>Résidence principale, secondaire ou investissement locatif</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Nos avantages</h4>
+            <ul>
+              <li>Analyse personnalisée de vos besoins</li>
+              <li>Négociation directe avec les assureurs partenaires</li>
+              <li>Comparaison de plusieurs devis</li>
+              <li>Suivi et accompagnement en cas de sinistre</li>
+              <li>Expertise locale toulousaine</li>
+            </ul>
+          </div>
+        </div>
+        <div class="detail-panel__cta">
+          <a href="/contact" class="btn btn-primary">Demander un devis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
+        </div>
+      </section>
+
+      <section class="detail-panel" id="detail-vie" aria-labelledby="detail-vie-title" tabindex="-1">
+        <div class="detail-panel__header">
+          <div>
+            <h3 class="detail-panel__title" id="detail-vie-title">Assurance vie</h3>
+            <p class="detail-panel__intro">L'assurance vie est un placement financier polyvalent : épargne progressive, revenus complémentaires à la retraite et transmission de capital à vos proches avec une fiscalité avantageuse.</p>
+          </div>
+          <button class="detail-panel__close" type="button" aria-label="Fermer">
+            <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="detail-panel__grid">
+          <div class="detail-block">
+            <h4>Garanties incluses</h4>
+            <ul>
+              <li>Constitution progressive d'une épargne à taux garanti minimal</li>
+              <li>Revenus complémentaires à la retraite</li>
+              <li>Transmission du capital aux bénéficiaires désignés en cas de décès</li>
+              <li>Contrats en fonds euros (sécurisés) ou multi-supports</li>
+              <li>Unités de compte pour dynamiser le rendement</li>
+              <li>Fiscalité favorable sur les transmissions</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Nos avantages</h4>
+            <ul>
+              <li>Placement souple et disponible à tout moment</li>
+              <li>Outil de transmission patrimoniale optimisé</li>
+              <li>Adapté aux projets à court, moyen et long terme</li>
+              <li>Conseil personnalisé selon votre profil de risque</li>
+              <li>Accès aux meilleures offres du marché</li>
+            </ul>
+          </div>
+        </div>
+        <div class="detail-panel__cta">
+          <a href="/contact" class="btn btn-primary">Demander un devis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
+        </div>
+      </section>
+
+      <section class="detail-panel" id="detail-sante" aria-labelledby="detail-sante-title" tabindex="-1">
+        <div class="detail-panel__header">
+          <div>
+            <h3 class="detail-panel__title" id="detail-sante-title">Santé &amp; prévoyance</h3>
+            <p class="detail-panel__intro">Stégéas compare les offres de mutuelle individuelle et vous aide à optimiser vos remboursements sur les postes qui comptent : consultations, médicaments, dentaire et optique.</p>
+          </div>
+          <button class="detail-panel__close" type="button" aria-label="Fermer">
+            <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="detail-panel__grid">
+          <div class="detail-block">
+            <h4>Garanties incluses</h4>
+            <ul>
+              <li>Consultations médicales et spécialistes</li>
+              <li>Médicaments et pharmacie</li>
+              <li>Soins dentaires (prothèses, orthodontie)</li>
+              <li>Soins optiques (lunettes, lentilles)</li>
+              <li>Prévoyance décès et invalidité</li>
+              <li>Incapacité de travail et arrêt maladie</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Nos avantages</h4>
+            <ul>
+              <li>Accès à une large gamme de formules multi-assureurs</li>
+              <li>Conseils personnalisés selon votre situation</li>
+              <li>Vérification des praticiens conventionnés à Toulouse</li>
+              <li>Suivi régulier et adaptation du contrat</li>
+              <li>Simplification de toutes les démarches administratives</li>
+            </ul>
+          </div>
+        </div>
+        <div class="detail-panel__cta">
+          <a href="/contact" class="btn btn-primary">Demander un devis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
+        </div>
+      </section>
 
     </div>
   </section>
@@ -591,129 +721,66 @@
 
   <script src="js/main.js"></script>
   <script>
-    const detailData = {
-      habitation: {
-        title: 'Assurance habitation',
-        intro: "Propriétaire ou locataire, Stégéas analyse vos besoins selon la superficie, le type de bien, la valeur de vos biens mobiliers et la composition de votre foyer pour vous orienter vers la meilleure formule.",
-        garanties: [
-          'Incendie et explosion',
-          'Dégâts des eaux',
-          'Cambriolage et vol',
-          'Responsabilité civile',
-          'Catastrophes naturelles',
-          'Résidence principale, secondaire ou investissement locatif',
-        ],
-        avantages: [
-          'Analyse personnalisée de vos besoins',
-          'Négociation directe avec les assureurs partenaires',
-          'Comparaison de plusieurs devis',
-          'Suivi et accompagnement en cas de sinistre',
-          'Expertise locale toulousaine',
-        ],
-      },
-      vie: {
-        title: 'Assurance vie',
-        intro: "L'assurance vie est un placement financier polyvalent : épargne progressive, revenus complémentaires à la retraite et transmission de capital à vos proches avec une fiscalité avantageuse.",
-        garanties: [
-          'Constitution progressive d\'une épargne à taux garanti minimal',
-          'Revenus complémentaires à la retraite',
-          'Transmission du capital aux bénéficiaires désignés en cas de décès',
-          'Contrats en fonds euros (sécurisés) ou multi-supports',
-          'Unités de compte pour dynamiser le rendement',
-          'Fiscalité favorable sur les transmissions',
-        ],
-        avantages: [
-          'Placement souple et disponible à tout moment',
-          'Outil de transmission patrimoniale optimisé',
-          'Adapté aux projets à court, moyen et long terme',
-          'Conseil personnalisé selon votre profil de risque',
-          'Accès aux meilleures offres du marché',
-        ],
-      },
-      sante: {
-        title: 'Santé & prévoyance',
-        intro: "Stégéas compare les offres de mutuelle individuelle et vous aide à optimiser vos remboursements sur les postes qui comptent : consultations, médicaments, dentaire et optique.",
-        garanties: [
-          'Consultations médicales et spécialistes',
-          'Médicaments et pharmacie',
-          'Soins dentaires (prothèses, orthodontie)',
-          'Soins optiques (lunettes, lentilles)',
-          'Prévoyance décès et invalidité',
-          'Incapacité de travail et arrêt maladie',
-        ],
-        avantages: [
-          'Accès à une large gamme de formules multi-assureurs',
-          'Conseils personnalisés selon votre situation',
-          'Vérification des praticiens conventionnés à Toulouse',
-          'Suivi régulier et adaptation du contrat',
-          'Simplification de toutes les démarches administratives',
-        ],
-      },
-    };
-
-    const panel = document.getElementById('detail-panel');
+    // Les contenus sont déjà présents dans le HTML ; le JS ne gère que leur affichage.
+    const cards = Array.from(document.querySelectorAll('.detail-card'));
+    const panels = cards.map(card => document.getElementById('detail-' + card.dataset.detail));
     const separator = document.getElementById('detail-separator');
-    const cards = document.querySelectorAll('.detail-card');
-    let current = null;
+    let currentCard = null;
 
-    function buildPanel(key) {
-      const d = detailData[key];
-      return `
-        <div class="detail-panel__header">
-          <div>
-            <p class="detail-panel__title">${d.title}</p>
-            <p class="detail-panel__intro">${d.intro}</p>
-          </div>
-          <button class="detail-panel__close" aria-label="Fermer">
-            <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
-        <div class="detail-panel__grid">
-          <div class="detail-block">
-            <h4>Garanties incluses</h4>
-            <ul>${d.garanties.map(g => `<li>${g}</li>`).join('')}</ul>
-          </div>
-          <div class="detail-block">
-            <h4>Nos avantages</h4>
-            <ul>${d.avantages.map(a => `<li>${a}</li>`).join('')}</ul>
-          </div>
-        </div>
-        <div class="detail-panel__cta">
-          <a href="/contact" class="btn btn-primary">Demander un devis
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <p>Nos conseillers analysent votre situation et vous proposent une offre sur mesure.</p>
-        </div>
-      `;
+    function closePanel(restoreFocus = true) {
+      if (!currentCard) return;
+      const card = currentCard;
+      document.getElementById(card.getAttribute('aria-controls')).hidden = true;
+      card.classList.remove('active');
+      card.setAttribute('aria-expanded', 'false');
+      currentCard = null;
+      separator.hidden = true;
+      if (restoreFocus) card.focus({ preventScroll: true });
     }
 
-    function openPanel(key, card) {
-      if (current === key) { closePanel(); return; }
-      current = key;
-      cards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-expanded', 'false'); });
+    function togglePanel(card) {
+      if (currentCard === card) {
+        closePanel();
+        return;
+      }
+      closePanel(false);
+      currentCard = card;
+      const panel = document.getElementById(card.getAttribute('aria-controls'));
       card.classList.add('active');
       card.setAttribute('aria-expanded', 'true');
-      panel.innerHTML = buildPanel(key);
-      panel.style.display = 'block';
-      separator.style.display = 'block';
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      panel.querySelector('.detail-panel__close').addEventListener('click', closePanel);
+      panel.hidden = false;
+      separator.hidden = false;
+      panel.focus({ preventScroll: true });
+      panel.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+        block: 'nearest'
+      });
     }
 
-    function closePanel() {
-      current = null;
-      cards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-expanded', 'false'); });
-      panel.style.display = 'none';
-      panel.innerHTML = '';
-      separator.style.display = 'none';
-    }
-
-    cards.forEach(card => {
-      card.addEventListener('click', () => openPanel(card.dataset.detail, card));
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(card.dataset.detail, card); }
+    cards.forEach((card, index) => {
+      const panel = panels[index];
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-expanded', 'false');
+      card.setAttribute('aria-controls', panel.id);
+      panel.hidden = true;
+      panel.classList.add('detail-panel--interactive');
+      panel.querySelector('.detail-panel__close').addEventListener('click', () => closePanel());
+      panel.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closePanel();
+        }
+      });
+      card.addEventListener('click', () => togglePanel(card));
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          togglePanel(card);
+        }
       });
     });
+    separator.hidden = true;
   </script>
 </body>
 </html>
