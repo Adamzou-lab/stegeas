@@ -629,10 +629,7 @@ section { padding: 96px 0; }
   .bc-card-wrap > div {
     transform: none !important;
     display: inline-flex !important;
-  }
-  .bc-card-wrap div[style*="width"] {
     width: min(300px, 85vw) !important;
-    height: 85px !important;
   }
   .about { padding-top: 64px !important; }
 
