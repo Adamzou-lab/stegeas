@@ -1,0 +1,97 @@
+/* Animations du site Stégéas.
+   Elles ne s'appliquent que sous html.anim, classe posée par le script de tête :
+   sans JavaScript, ou si l'appareil demande de réduire les animations, la page
+   reste exactement comme avant. On n'anime que transform, opacity et le tracé
+   des icônes, pour rester fluide sur téléphone. */
+
+:root {
+  --anim-sortie: cubic-bezier(.16, 1, .3, 1);
+  --anim-glisse: cubic-bezier(.77, 0, .18, 1);
+}
+
+@keyframes anim-montee {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes anim-dezoom {
+  from { transform: scale(1.1); }
+  to   { transform: scale(1); }
+}
+@keyframes anim-apparait {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 1. Ouverture de l'accueil : la photo du pont dézoome, le contenu arrive en cascade */
+.anim .hero__bg { animation: anim-dezoom 2.6s var(--anim-sortie) both; }
+.anim .hero__content > * { animation: anim-montee .9s var(--anim-sortie) both; }
+.anim .hero__content > :nth-child(1) { animation-delay: .15s; }
+.anim .hero__content > :nth-child(2) { animation-delay: .35s; }
+.anim .hero__content > :nth-child(3) { animation-delay: .45s; }
+.anim .hero__content > :nth-child(4) { animation-delay: .65s; }
+.anim .bc-card-wrap img { animation: anim-montee 1s var(--anim-sortie) .95s both; }
+
+/* 2. Cartes de services : montée en cascade, icônes tracées au stylo.
+   Remplissage « backwards » sur les cartes pour que le survol (translateY) reste actif ensuite. */
+.anim .cards .card:not(.vu) { opacity: 0; }
+.anim .cards .card.vu {
+  animation: anim-montee .8s var(--anim-sortie) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+.anim .card__icon .trait {
+  stroke-dasharray: var(--l);
+  stroke-dashoffset: var(--l);
+}
+.anim .card.vu .card__icon .trait {
+  animation: anim-trace 1.1s cubic-bezier(.65, 0, .35, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms + 300ms + var(--j, 0) * 140ms);
+}
+@keyframes anim-trace { to { stroke-dashoffset: 0; } }
+
+/* 3. Photo du cabinet : un rideau bordeaux passe et découvre la façade, puis la pastille 2003 se pose */
+.anim-rideau {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.anim-rideau::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bordeaux);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.anim .about__visual:not(.vu) .about__photo,
+.anim .about__visual:not(.vu) .about__badge { opacity: 0; }
+.anim .about__visual.vu .anim-rideau::after { animation: anim-rideau 1.3s var(--anim-glisse) both; }
+.anim .about__visual.vu .about__photo {
+  animation: anim-apparait 0s .62s backwards, anim-dezoom 1.6s var(--anim-sortie) .62s backwards;
+}
+.anim .about__visual.vu .about__badge { animation: anim-montee .8s var(--anim-sortie) 1.1s backwards; }
+@keyframes anim-rideau {
+  0%   { transform: scaleX(0); transform-origin: left center; }
+  45%  { transform: scaleX(1); transform-origin: left center; }
+  55%  { transform: scaleX(1); transform-origin: right center; }
+  100% { transform: scaleX(0); transform-origin: right center; }
+}
+
+/* Voyant ORIAS : une onde douce part du point vert, comme un témoin allumé */
+.anim .about__orias-dot { position: relative; }
+.anim .about__orias-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: anim-voyant 2.4s cubic-bezier(0, 0, .2, 1) infinite;
+}
+@keyframes anim-voyant {
+  0%        { transform: scale(1);   opacity: .55; }
+  70%, 100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* 4. Compteurs : chiffres à chasse fixe pour qu'ils ne tremblent pas en défilant */
+.anim .why-item__num { font-variant-numeric: tabular-nums; }

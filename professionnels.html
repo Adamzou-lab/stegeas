@@ -43,6 +43,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/main.css?v=8" />
+  <!-- Animations (css/animations.css, js/animations.js) : la classe anim n'est posee que si
+       l'appareil ne demande pas de reduire les animations ; sans elle, la page reste fixe. -->
+  <script>(function(){var r=document.documentElement;if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){r.classList.add('anim');setTimeout(function(){if(!window.__animPret)r.classList.remove('anim')},3000)}})()</script>
+  <link rel="stylesheet" href="css/animations.css?v=1" />
+  <script src="js/animations.js?v=1" defer></script>
 
   <style>
     /* ---- Page hero compact ---- */
@@ -181,7 +186,7 @@
       padding: 2.5rem 2rem;
       text-align: center;
     }
-    .why-item__num {
+    .why-item .why-item__num {
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--bordeaux);
