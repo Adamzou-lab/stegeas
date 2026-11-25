@@ -1,3 +1,12 @@
+# Securite, sur toutes les pages : pas d'affichage du site dans un cadre d'un
+# autre site (clickjacking), HTTPS impose au navigateur pendant un an, et aucun
+# acces a la camera, au micro ou a la position.
+/*
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'
+  Strict-Transport-Security: max-age=31536000
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
 # Fichiers techniques publies avec le site : accessibles, mais jamais indexes.
 /README.md
   X-Robots-Tag: noindex

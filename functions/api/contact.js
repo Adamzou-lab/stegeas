@@ -16,6 +16,7 @@
 const DEFAUT_TO = 'contact@stegeas.fr';
 const DEFAUT_FROM = 'Formulaire Stegeas <formulaire@send.stegeas.com>';
 const MAX_TAILLE = 20000; // octets, garde-fou contre les envois massifs
+const DELAI_MIN = 3000; // ms : personne ne remplit nom, e-mail et message plus vite
 
 const json = (statut, corps) =>
   new Response(JSON.stringify(corps), {
@@ -63,6 +64,15 @@ export async function onRequest({ request, env }) {
   // 2. Piege a robots : un humain ne remplit jamais ce champ cache.
   //    On repond 200 pour ne pas renseigner le spammeur sur la detection.
   if (data['bot-field']) return json(200, { ok: true });
+
+  //    Le script de la page envoie le temps passé depuis son ouverture. Sans ce
+  //    champ, l'envoi ne vient pas du formulaire (robot qui poste directement
+  //    sur l'API) ; en moins de DELAI_MIN, c'est un remplissage automatique.
+  const delai = Number(data.delai);
+  if (data.delai === undefined || !Number.isFinite(delai)) {
+    return json(400, { ok: false, erreur: 'envoi hors formulaire' });
+  }
+  if (delai < DELAI_MIN) return json(200, { ok: true });
 
   // 3. Validation
   const nom = uneLigne(data.nom);

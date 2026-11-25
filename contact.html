@@ -353,7 +353,7 @@
         <img
           src="assets/logo_stegeas.webp"
           alt="Logo Stégéas"
-          width="120" height="40"
+          width="500" height="500"
         />
       </a>
       <ul class="nav__links" role="list">
@@ -408,7 +408,12 @@
           <p>Remplissez le formulaire ci-dessous et nous prendrons contact avec vous dans les plus brefs délais.</p>
 
           <form id="contactForm" name="contact" method="POST" action="/api/contact" novalidate>
-            <input type="hidden" name="bot-field" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <!-- Piège à robots : un vrai champ texte, sorti de l'écran. Un champ de type
+                 hidden ne piège rien, les robots laissent ces champs tels quels. -->
+            <div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+              <label for="bot-field">Ne pas remplir ce champ</label>
+              <input type="text" id="bot-field" name="bot-field" tabindex="-1" autocomplete="off" />
+            </div>
 
             <div class="form-row">
               <div class="form-group">
@@ -597,6 +602,8 @@
   <script src="js/main.js"></script>
   <script>
     const form = document.getElementById('contactForm');
+    // Temps passé sur la page avant l'envoi, contrôlé par /api/contact contre les robots
+    const ouverture = Date.now();
     const success = document.getElementById('formSuccess');
     const failure = document.getElementById('formError');
     const LIBELLE_ENVOI = 'Envoyer le message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
@@ -623,7 +630,7 @@
         const reponse = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          body: JSON.stringify({ ...Object.fromEntries(new FormData(form)), delai: Date.now() - ouverture }),
         });
 
         // fetch ne rejette pas sur un statut d'erreur : sans ce test, une panne
