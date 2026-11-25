@@ -178,7 +178,7 @@
 
     .equipe__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1.5rem;
     }
 
@@ -209,8 +209,16 @@
       color: var(--bordeaux);
     }
 
+    @media (max-width: 1060px) {
+      .membre__info { padding: 1.25rem 1.25rem 1.5rem; }
+    }
     @media (max-width: 960px) {
       .equipe__grid { grid-template-columns: repeat(2, 1fr); }
+      .membre:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 0.75rem);
+      }
       .histoire__inner { grid-template-columns: 1fr; gap: 2rem; }
       .valeurs__grid { grid-template-columns: repeat(2, 1fr); }
       .locaux__grid { grid-template-columns: 1fr; }
@@ -417,6 +425,16 @@
           </div>
           <div class="membre__info">
             <h3>Sylvie</h3>
+            <p class="membre__role">Collaboratrice d'agence</p>
+          </div>
+        </article>
+
+        <article class="membre">
+          <div class="membre__photo">
+            <img src="assets/benedicte.webp" alt="Bénédicte, collaboratrice d'agence chez Stégéas Toulouse" width="810" height="1080" loading="lazy" decoding="async" />
+          </div>
+          <div class="membre__info">
+            <h3>Bénédicte</h3>
             <p class="membre__role">Collaboratrice d'agence</p>
           </div>
         </article>
