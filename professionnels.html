@@ -42,7 +42,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css?v=8" />
+  <link rel="stylesheet" href="css/main.css?v=10" />
   <!-- Animations (css/animations.css, js/animations.js) : la classe anim n'est posee que si
        l'appareil ne demande pas de reduire les animations ; sans elle, la page reste fixe. -->
   <script>(function(){var r=document.documentElement;if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){r.classList.add('anim');setTimeout(function(){if(!window.__animPret)r.classList.remove('anim')},3000)}})()</script>
@@ -869,25 +869,25 @@
       <h2 style="font-size:1.6rem; font-weight:700; color:var(--black); margin-bottom:3rem; line-height:1.3;">Vos questions sur les assurances professionnelles</h2>
       <div style="display:flex; flex-direction:column;">
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">La responsabilité civile professionnelle est-elle obligatoire ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Elle est obligatoire pour certaines professions réglementées (avocats, architectes, professionnels de santé, agents immobiliers...). Pour les autres activités, elle reste fortement recommandée : un seul sinistre causé à un tiers peut engager la survie financière de votre entreprise.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>La responsabilité civile professionnelle est-elle obligatoire ?</h3></summary>
+          <p>Elle est obligatoire pour certaines professions réglementées (avocats, architectes, professionnels de santé, agents immobiliers...). Pour les autres activités, elle reste fortement recommandée : un seul sinistre causé à un tiers peut engager la survie financière de votre entreprise.</p>
+        </details>
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Qu'est-ce qu'une assurance multirisques professionnelle couvre exactement ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Une multirisques professionnelle regroupe en un seul contrat la protection de vos locaux, de votre matériel, de vos marchandises et votre responsabilité civile exploitation. Elle peut également couvrir les pertes d'exploitation en cas de sinistre qui vous empêche d'exercer.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Qu'est-ce qu'une assurance multirisques professionnelle couvre exactement ?</h3></summary>
+          <p>Une multirisques professionnelle regroupe en un seul contrat la protection de vos locaux, de votre matériel, de vos marchandises et votre responsabilité civile exploitation. Elle peut également couvrir les pertes d'exploitation en cas de sinistre qui vous empêche d'exercer.</p>
+        </details>
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Comment assurer une flotte de véhicules d'entreprise ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Un contrat flotte permet d'assurer plusieurs véhicules sous une seule police, avec une gestion simplifiée et des tarifs négociés. Stégéas analyse la composition de votre parc, l'usage des véhicules et le profil de vos conducteurs pour vous proposer la formule la plus adaptée.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Comment assurer une flotte de véhicules d'entreprise ?</h3></summary>
+          <p>Un contrat flotte permet d'assurer plusieurs véhicules sous une seule police, avec une gestion simplifiée et des tarifs négociés. Stégéas analyse la composition de votre parc, l'usage des véhicules et le profil de vos conducteurs pour vous proposer la formule la plus adaptée.</p>
+        </details>
 
-        <div style="padding:1.75rem 0;">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Quelle différence entre RC exploitation et RC professionnelle ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">La RC exploitation couvre les dommages causés aux tiers dans le cadre de votre activité courante (un client qui chute dans vos locaux, par exemple). La RC professionnelle couvre les préjudices liés à une faute, erreur ou omission dans la réalisation de votre prestation. Les deux sont souvent complémentaires.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Quelle différence entre RC exploitation et RC professionnelle ?</h3></summary>
+          <p>La RC exploitation couvre les dommages causés aux tiers dans le cadre de votre activité courante (un client qui chute dans vos locaux, par exemple). La RC professionnelle couvre les préjudices liés à une faute, erreur ou omission dans la réalisation de votre prestation. Les deux sont souvent complémentaires.</p>
+        </details>
 
       </div>
     </div>

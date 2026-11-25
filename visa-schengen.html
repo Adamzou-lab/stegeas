@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css?v=8" />
+  <link rel="stylesheet" href="css/main.css?v=10" />
 
   <style>
     .page-hero {
@@ -167,10 +167,6 @@
     .faq__header { text-align: center; margin-bottom: 3rem; }
     .faq__header h2 { margin-top: 0.5rem; }
     .faq__list { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; }
-    .faq-item { padding: 1.75rem 0; border-bottom: 1px solid var(--gray-mid); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-item h3 { font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 0.75rem; }
-    .faq-item p { font-size: 0.9rem; color: var(--gray-text); line-height: 1.8; }
 
     /* Contact strip */
     .contact-strip-alt { background: var(--black); padding: 40px 0; text-align: center; }
@@ -355,22 +351,22 @@
         <h2 id="faq-title">Tout ce que vous devez savoir<br />sur l'assurance visa Schengen</h2>
       </div>
       <div class="faq__list">
-        <div class="faq-item">
-          <h3>L'assurance voyage est-elle obligatoire pour un visa Schengen ?</h3>
+        <details class="faq-q" name="faq">
+          <summary><h3>L'assurance voyage est-elle obligatoire pour un visa Schengen ?</h3></summary>
           <p>Oui. Tout demandeur d'un visa Schengen doit fournir une attestation d'assurance voyage couvrant au minimum 30 000 € de frais médicaux et d'hospitalisation, valable dans l'ensemble de l'espace Schengen pour toute la durée du séjour.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Combien coûte une assurance visa Schengen ?</h3>
+        </details>
+        <details class="faq-q" name="faq">
+          <summary><h3>Combien coûte une assurance visa Schengen ?</h3></summary>
           <p>Le tarif dépend de la durée du séjour et du pays de destination. Pour un court séjour en Europe, les formules débutent généralement autour de 20 à 40 €. Stégéas vous oriente vers l'offre la plus compétitive conforme aux exigences consulaires.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Quels pays font partie de l'espace Schengen ?</h3>
+        </details>
+        <details class="faq-q" name="faq">
+          <summary><h3>Quels pays font partie de l'espace Schengen ?</h3></summary>
           <p>L'espace Schengen regroupe 29 pays européens dont la France, l'Allemagne, l'Espagne, l'Italie, les Pays-Bas, la Belgique, le Portugal, la Suisse, l'Autriche et la Grèce. L'assurance doit couvrir l'ensemble de ces pays, quel que soit votre pays d'entrée principal.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Puis-je souscrire l'assurance en ligne ?</h3>
+        </details>
+        <details class="faq-q" name="faq">
+          <summary><h3>Puis-je souscrire l'assurance en ligne ?</h3></summary>
           <p>Oui. Via le partenaire agréé de Stégéas, vous pouvez souscrire en ligne en quelques minutes et recevoir votre attestation immédiatement par email, prête à être jointe à votre dossier de demande de visa.</p>
-        </div>
+        </details>
       </div>
     </div>
   </section>

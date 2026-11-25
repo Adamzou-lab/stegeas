@@ -42,7 +42,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css?v=8" />
+  <link rel="stylesheet" href="css/main.css?v=10" />
   <!-- Animations (css/animations.css, js/animations.js) : la classe anim n'est posee que si
        l'appareil ne demande pas de reduire les animations ; sans elle, la page reste fixe. -->
   <script>(function(){var r=document.documentElement;if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){r.classList.add('anim');setTimeout(function(){if(!window.__animPret)r.classList.remove('anim')},3000)}})()</script>
@@ -656,25 +656,25 @@
       <h2 style="font-size:1.6rem; font-weight:700; color:var(--black); margin-bottom:3rem; line-height:1.3;">Vos questions sur les assurances particuliers</h2>
       <div style="display:flex; flex-direction:column;">
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Quelle est la différence entre assurance habitation propriétaire et locataire ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Le locataire doit couvrir sa responsabilité civile et ses biens mobiliers. Le propriétaire assure en plus la structure du bâtiment. Dans les deux cas, Stégéas compare les offres du marché pour vous proposer la formule la mieux adaptée à votre situation.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Quelle est la différence entre assurance habitation propriétaire et locataire ?</h3></summary>
+          <p>Le locataire doit couvrir sa responsabilité civile et ses biens mobiliers. Le propriétaire assure en plus la structure du bâtiment. Dans les deux cas, Stégéas compare les offres du marché pour vous proposer la formule la mieux adaptée à votre situation.</p>
+        </details>
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Puis-je regrouper toutes mes assurances particuliers chez un seul courtier ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Oui. Stégéas gère l'ensemble de vos contrats particuliers : habitation, véhicules, santé, assurance vie, visa Schengen. Un interlocuteur unique connaît votre dossier complet et peut négocier des conditions plus avantageuses sur l'ensemble de vos couvertures.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Puis-je regrouper toutes mes assurances particuliers chez un seul courtier ?</h3></summary>
+          <p>Oui. Stégéas gère l'ensemble de vos contrats particuliers : habitation, véhicules, santé, assurance vie, visa Schengen. Un interlocuteur unique connaît votre dossier complet et peut négocier des conditions plus avantageuses sur l'ensemble de vos couvertures.</p>
+        </details>
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Comment choisir sa mutuelle santé individuelle ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Le choix dépend de vos postes de dépenses prioritaires : dentaire, optique, médecines douces, hospitalisation. Stégéas analyse vos besoins réels et compare les offres de plus de 30 compagnies partenaires pour vous orienter vers la mutuelle la plus adaptée à votre profil et votre budget.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Comment choisir sa mutuelle santé individuelle ?</h3></summary>
+          <p>Le choix dépend de vos postes de dépenses prioritaires : dentaire, optique, médecines douces, hospitalisation. Stégéas analyse vos besoins réels et compare les offres de plus de 30 compagnies partenaires pour vous orienter vers la mutuelle la plus adaptée à votre profil et votre budget.</p>
+        </details>
 
-        <div style="padding:1.75rem 0;">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">L'assurance auto tous risques vaut-elle toujours le coût supplémentaire ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Pas systématiquement. Pour un véhicule récent ou financé, le tous risques est fortement recommandé. Pour un véhicule ancien à faible valeur, le tiers peut suffire. Stégéas évalue la valeur de votre véhicule, votre usage et votre profil conducteur pour vous conseiller la formule la plus pertinente.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>L'assurance auto tous risques vaut-elle toujours le coût supplémentaire ?</h3></summary>
+          <p>Pas systématiquement. Pour un véhicule récent ou financé, le tous risques est fortement recommandé. Pour un véhicule ancien à faible valeur, le tiers peut suffire. Stégéas évalue la valeur de votre véhicule, votre usage et votre profil conducteur pour vous conseiller la formule la plus pertinente.</p>
+        </details>
 
       </div>
     </div>

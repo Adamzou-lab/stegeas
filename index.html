@@ -78,7 +78,7 @@
   <link rel="preload" as="image" href="assets/toulouse.webp" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/main.css?v=9" />
+  <link rel="stylesheet" href="css/main.css?v=10" />
   <!-- Animations (css/animations.css, js/animations.js) : la classe anim n'est posee que si
        l'appareil ne demande pas de reduire les animations ; sans elle, la page reste fixe. -->
   <script>(function(){var r=document.documentElement;if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){r.classList.add('anim');setTimeout(function(){if(!window.__animPret)r.classList.remove('anim')},3000)}})()</script>
@@ -482,30 +482,30 @@
 
       <div style="display:flex; flex-direction:column;">
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Qu'est-ce qu'un courtier en assurance indépendant ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Un courtier en assurance indépendant n'est lié à aucune compagnie. Contrairement à un agent qui représente un seul assureur, il compare les offres de plus de 30 compagnies partenaires pour vous orienter vers la solution la mieux adaptée à votre situation, au meilleur tarif du marché.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Qu'est-ce qu'un courtier en assurance indépendant ?</h3></summary>
+          <p>Un courtier en assurance indépendant n'est lié à aucune compagnie. Contrairement à un agent qui représente un seul assureur, il compare les offres de plus de 30 compagnies partenaires pour vous orienter vers la solution la mieux adaptée à votre situation, au meilleur tarif du marché.</p>
+        </details>
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Faire appel à un courtier en assurance est-il gratuit ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Oui, totalement. Le courtier est rémunéré par les compagnies d'assurance sous forme de commission. Vous bénéficiez d'un accompagnement personnalisé, d'une comparaison des offres du marché et d'un suivi de vos contrats sans aucun frais supplémentaire.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Faire appel à un courtier en assurance est-il gratuit ?</h3></summary>
+          <p>Oui, totalement. Le courtier est rémunéré par les compagnies d'assurance sous forme de commission. Vous bénéficiez d'un accompagnement personnalisé, d'une comparaison des offres du marché et d'un suivi de vos contrats sans aucun frais supplémentaire.</p>
+        </details>
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Stégéas intervient-il uniquement à Toulouse ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Non. Cabinet de courtage en assurances situé à Toulouse, à proximité immédiate de Balma, Stégéas accompagne particuliers et professionnels sur toute la Haute-Garonne. Habitation, véhicules, santé, multirisques professionnelles, RC pro : nous couvrons l'ensemble de vos besoins.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Stégéas intervient-il uniquement à Toulouse ?</h3></summary>
+          <p>Non. Cabinet de courtage en assurances situé à Toulouse, à proximité immédiate de Balma, Stégéas accompagne particuliers et professionnels sur toute la Haute-Garonne. Habitation, véhicules, santé, multirisques professionnelles, RC pro : nous couvrons l'ensemble de vos besoins.</p>
+        </details>
 
-        <div style="padding:1.75rem 0; border-bottom:1px solid var(--gray-mid);">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Comment obtenir un devis auprès de Stégéas ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">Contactez-nous par téléphone au 05 62 88 37 04, par email ou via le formulaire de contact. Nous analysons votre situation et vous proposons une sélection de contrats adaptés à votre profil et à votre budget. Premier échange sans engagement.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Comment obtenir un devis auprès de Stégéas ?</h3></summary>
+          <p>Contactez-nous par téléphone au 05 62 88 37 04, par email ou via le formulaire de contact. Nous analysons votre situation et vous proposons une sélection de contrats adaptés à votre profil et à votre budget. Premier échange sans engagement.</p>
+        </details>
 
-        <div style="padding:1.75rem 0;">
-          <h3 style="font-size:1rem; font-weight:700; color:var(--black); margin-bottom:0.75rem;">Qu'est-ce que l'immatriculation ORIAS garantit ?</h3>
-          <p style="font-size:0.9rem; color:var(--gray-text); line-height:1.8;">L'immatriculation ORIAS (n° 07006002) est obligatoire pour exercer le courtage en assurance en France. Elle certifie que Stégéas respecte les conditions d'honorabilité, de capacité professionnelle et de garantie financière imposées par la réglementation. Vérifiable sur orias.fr.</p>
-        </div>
+        <details class="faq-q" name="faq">
+          <summary><h3>Qu'est-ce que l'immatriculation ORIAS garantit ?</h3></summary>
+          <p>L'immatriculation ORIAS (n° 07006002) est obligatoire pour exercer le courtage en assurance en France. Elle certifie que Stégéas respecte les conditions d'honorabilité, de capacité professionnelle et de garantie financière imposées par la réglementation. Vérifiable sur orias.fr.</p>
+        </details>
 
       </div>
     </div>

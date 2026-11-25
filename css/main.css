@@ -589,6 +589,75 @@ section { padding: 96px 0; }
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
+/* ---------- Questions fréquentes dépliables ----------
+   <details> natif : s'ouvre au clic et au clavier, sans JavaScript. name="faq"
+   referme la question ouverte quand on en ouvre une autre. Le dépliage glisse
+   dans les navigateurs qui savent animer vers une hauteur auto (::details-content),
+   et s'ouvre d'un coup ailleurs. */
+.faq-q {
+  border-bottom: 1px solid var(--gray-mid);
+  interpolate-size: allow-keywords;
+}
+.faq-q:last-child { border-bottom: none; }
+.faq-q > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-q > summary::-webkit-details-marker { display: none; }
+.faq-q > summary h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--black);
+  margin: 0;
+  transition: color var(--transition);
+}
+/* Le « + » : deux traits dessinés en fond ; le trait vertical se replie en « − » à l'ouverture */
+.faq-q > summary::after {
+  content: '';
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--gray-mid);
+  border-radius: 50%;
+  color: var(--black);
+  background:
+    linear-gradient(currentColor, currentColor) center / 11px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 11px no-repeat;
+  transition: background-size 0.3s ease, transform 0.3s ease, color var(--transition), border-color var(--transition);
+}
+.faq-q > summary:hover h3,
+.faq-q[open] > summary h3 { color: var(--bordeaux); }
+.faq-q > summary:hover::after,
+.faq-q[open] > summary::after { color: var(--bordeaux); border-color: var(--bordeaux); }
+.faq-q[open] > summary::after {
+  background-size: 11px 1.5px, 1.5px 0;
+  transform: rotate(180deg);
+}
+.faq-q > summary:focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 4px; border-radius: 4px; }
+.faq-q > p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--gray-text);
+  margin: 0 0 1.5rem;
+  padding-right: 3rem;
+}
+.faq-q::details-content {
+  block-size: 0;
+  overflow-y: clip;
+  transition: block-size 0.35s ease, content-visibility 0.35s allow-discrete;
+}
+.faq-q[open]::details-content { block-size: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .faq-q::details-content,
+  .faq-q > summary::after { transition: none; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
